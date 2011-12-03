@@ -5,8 +5,6 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import static junit.framework.Assert.assertTrue;
 
-
-
 /**
  * Created by IntelliJ IDEA.
  * User: Andreas
