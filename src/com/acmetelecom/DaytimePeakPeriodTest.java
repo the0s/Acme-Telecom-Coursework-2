@@ -1,7 +1,6 @@
-package test;
+package com.acmetelecom;
 
 
-import com.acmetelecom.DaytimePeakPeriod;
 import org.junit.Test;
 
 import java.text.ParseException;
