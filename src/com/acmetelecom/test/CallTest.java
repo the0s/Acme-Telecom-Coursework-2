@@ -1,16 +1,15 @@
-package test;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.swing.text.DateFormatter;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+package com.acmetelecom.test;
 
 import com.acmetelecom.Call;
 import com.acmetelecom.CallEnd;
 import com.acmetelecom.CallStart;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
 
 public class CallTest {
 	
