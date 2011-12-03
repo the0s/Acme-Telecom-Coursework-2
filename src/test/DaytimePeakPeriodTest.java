@@ -31,18 +31,10 @@ public class DaytimePeakPeriodTest {
     }
 
     @Test
-	public void checkForPeakTimeMorning() throws ParseException {
+	public void checkForPeakTime() throws ParseException {
         DaytimePeakPeriod daytimePeakPeriod = new DaytimePeakPeriod();
         SimpleDateFormat dfm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date peakDate = dfm.parse("2012-12-03 06:15:00");
-        assertTrue(daytimePeakPeriod.offPeak(peakDate));
-    }
-
-     @Test
-	public void checkForPeakTimeBelowEvening() throws ParseException {
-        DaytimePeakPeriod daytimePeakPeriod = new DaytimePeakPeriod();
-        SimpleDateFormat dfm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Date peakDate = dfm.parse("2012-12-03 19:15:00");
         assertTrue(daytimePeakPeriod.offPeak(peakDate));
     }
 
