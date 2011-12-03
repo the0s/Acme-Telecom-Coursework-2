@@ -15,5 +15,4 @@ public class BillGenerator {
         }
         printer.printTotal(totalBill);
     }
-
 }
