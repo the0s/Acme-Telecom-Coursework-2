@@ -35,16 +35,16 @@ public class BillingSystemTest {
         billingSystem.createCustomerBills();
     }
 
-//       @Test
-//       public void createAndCheckBillsForCustomersPeak(){
-//           List<Long> times = new ArrayList<Long>();
-//           times.add(new Long("1322950876823"));
-//           times.add(new Long("1322950877823"));
-//           AbstractBillingSystem billingSystem = new BillingSystemFake(times);
-//           billingSystem.callInitiated("447722113434", "447766814143");
-//           billingSystem.callCompleted("447722113434", "447766814143");
-//           billingSystem.createCustomerBills();
-//       }
+    @Test
+    public void createAndCheckBillsForCustomersPeak() {
+        List<Long> times = new ArrayList<Long>();
+        times.add(new Long("1322950876823"));
+        times.add(new Long("1322950877823"));
+        AbstractBillingSystem billingSystem = new BillingSystemFake(times);
+        billingSystem.callInitiated("447722113434", "447766814143");
+        billingSystem.callCompleted("447722113434", "447766814143");
+        billingSystem.createCustomerBills();
+    }
 
 //       @Test
 //       public void createAndCheckBillsForCustomersPeakToNonPeak(){
