@@ -5,7 +5,6 @@ import com.acmetelecom.customer.Customer;
 import java.util.List;
 
 public class BillGenerator implements BillGeneratorInterface {
-
     public void send(Customer customer, List<LineItem> calls, String totalBill) {
         Printer printer = HtmlPrinter.getInstance();
         printer.printHeading(customer.getFullName(), customer.getPhoneNumber(), customer.getPricePlan());

@@ -25,7 +25,6 @@ public class BillGeneratorUtil implements BillGeneratorInterface {
             printer.printItem(call.date(), call.callee(), call.durationMinutes(), MoneyFormatter.penceToPounds(call.cost()));
         }
         printer.printTotal(totalBill);
-
         filePrinter.writeToTestFile(customer.getPhoneNumber(), totalBill);
 
     }

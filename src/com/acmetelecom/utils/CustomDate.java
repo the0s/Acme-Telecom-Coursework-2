@@ -16,7 +16,8 @@ public class CustomDate {
         //We have to use a calendar instance since Date(year, month, day, hours, mins) is deprecated
         Calendar cal = Calendar.getInstance();
         cal.setTimeZone(TimeZone.getDefault());
-        cal.set(year - 1900, month, day, hours, mins, secs);
+        //cal.set(year - 1900, month, day, hours, mins, secs);
+        cal.set(year, month, day, hours, mins, secs);
         this.date = cal.getTime();
     }
 
