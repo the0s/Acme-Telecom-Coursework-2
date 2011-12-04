@@ -4,10 +4,13 @@ import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.CentralTariffDatabase;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.customer.Tariff;
+import com.acmetelecom.utils.CustomDate;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -55,15 +58,62 @@ public abstract class AbstractBillingSystem {
 
     private BigDecimal calculateCallCost(Customer customer, Call call) {
         Tariff tariff = CentralTariffDatabase.getInstance().tarriffFor(customer);
-        BigDecimal cost;
+        BigDecimal cost = new BigDecimal(0);
 
         DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
-        if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime()) && call.durationSeconds() < 12 * 60 * 60) {
-            cost = new BigDecimal(call.durationSeconds()).multiply(tariff.offPeakRate());
-        } else {
-            cost = new BigDecimal(call.durationSeconds()).multiply(tariff.peakRate());
+        int halfDayInSeconds = 12 * 60 * 60;
+
+        if (call.durationSeconds() < halfDayInSeconds) {
+            if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
+                cost = getCost(tariff, call.durationSeconds(), 0);
+            } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
+                cost = getCost(tariff, 0, call.durationSeconds());
+            } else if (peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
+                Date peakStart = getPeakStart(call.startTime());
+                int offPeakDuration = getDurationInSeconds(call.startTime(), peakStart);
+                int peakDuration = call.durationSeconds() - offPeakDuration;
+                cost = getCost(tariff, offPeakDuration, peakDuration);
+            } else if (!peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
+                Date peakEnd = getPeakEnd(call.startTime());
+                int peakDuration = getDurationInSeconds(call.startTime(), peakEnd);
+                int offPeakDuration = call.durationSeconds() - peakDuration;
+                cost = getCost(tariff, offPeakDuration, peakDuration);
+            }
+        } else if (call.durationSeconds() > halfDayInSeconds) {
+            if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
+                int peakDuration = halfDayInSeconds;
+                int offPeakDuration = call.durationSeconds() - peakDuration;
+                cost = getCost(tariff, offPeakDuration, peakDuration);
+            } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
+                int offPeakDuration = halfDayInSeconds;
+                int peakDuration = call.durationSeconds() - offPeakDuration;
+                cost = getCost(tariff, offPeakDuration, peakDuration);
+            }
         }
         return cost;
+    }
+
+    private BigDecimal getCost(Tariff tariff, int offPeakDuration, int peakDuration) {
+        BigDecimal costOffPeak, costPeak;
+        costOffPeak = new BigDecimal(offPeakDuration).multiply(tariff.offPeakRate());
+        costPeak = new BigDecimal(peakDuration).multiply(tariff.peakRate());
+        return costOffPeak.add(costPeak);
+    }
+
+    private int getDurationInSeconds(Date start, Date end) {
+        return (int) ((end.getTime() - start.getTime()) / 1000);
+    }
+
+    private Date getPeakStart(Date callStart) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(callStart);
+        return new CustomDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 07, 00, 00).getDate();
+    }
+
+    private Date getPeakEnd(Date callStart) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(callStart);
+        return new CustomDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 19, 00, 00).getDate();
     }
 
     private List<Call> getCallsDetails(List<CallEvent> customerEvents) {

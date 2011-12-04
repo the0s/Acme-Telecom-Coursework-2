@@ -39,7 +39,6 @@ public class BillingSystemTest {
         this.callee = "447766814143";
         this.customer = CustomerFind.getCustomerFromNumber(this.caller);
         this.tariff = CentralTariffDatabase.getInstance().tarriffFor(this.customer);
-
     }
 
 
@@ -74,7 +73,6 @@ public class BillingSystemTest {
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = new BigDecimal(20 * 60).multiply(tariff.offPeakRate());
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
-        ;
         FilePrinter.getInstance().deleteFile();
     }
 
@@ -91,7 +89,7 @@ public class BillingSystemTest {
         billingSystem.createCustomerBills();
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = new BigDecimal(20 * 60).multiply(tariff.offPeakRate());
-        calculatedBill.add(new BigDecimal(20 * 60).multiply(tariff.peakRate()));
+        calculatedBill = calculatedBill.add(new BigDecimal(20 * 60).multiply(tariff.peakRate()));
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
         FilePrinter.getInstance().deleteFile();
     }
@@ -110,7 +108,9 @@ public class BillingSystemTest {
         billingSystem.createCustomerBills();
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = new BigDecimal(20 * 60).multiply(tariff.offPeakRate());
-        calculatedBill.add(new BigDecimal(20 * 60).multiply(tariff.peakRate()));
+        BigDecimal test = new BigDecimal(20 * 60).multiply(tariff.peakRate());
+        System.out.println(calculatedBill + "  " + test + "   " + calculatedBill.add(test));
+        calculatedBill = calculatedBill.add(test);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
         FilePrinter.getInstance().deleteFile();
     }
@@ -128,7 +128,8 @@ public class BillingSystemTest {
         billingSystem.createCustomerBills();
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = new BigDecimal(12 * 60 * 60).multiply(tariff.offPeakRate());
-        calculatedBill.add(new BigDecimal(40 * 60).multiply(tariff.peakRate()));
+        BigDecimal test = new BigDecimal(40 * 60).multiply(tariff.peakRate());
+        calculatedBill = calculatedBill.add(test);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
         FilePrinter.getInstance().deleteFile();
     }
@@ -146,7 +147,7 @@ public class BillingSystemTest {
         billingSystem.createCustomerBills();
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = new BigDecimal(40 * 60).multiply(tariff.offPeakRate());
-        calculatedBill.add(new BigDecimal(12 * 60 * 60).multiply(tariff.peakRate()));
+        calculatedBill = calculatedBill = calculatedBill.add(new BigDecimal(12 * 60 * 60).multiply(tariff.peakRate()));
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
         FilePrinter.getInstance().deleteFile();
     }
