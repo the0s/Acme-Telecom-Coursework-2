@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellpadding="1" cellspacing="1" style="width: 529px; height: 118px;">
+			<tbody>
+				<tr>
+					<td colspan="5">
+						fit.ActionFixture</td>
+				</tr>
+				<tr>
+					<td>
+						start</td>
+					<td colspan="4" rowspan="1">
+						SimpleCall</td>
+				</tr>
+				<tr>
+					<td>
+						enter</td>
+					<td>
+						startCall</td>
+					<td>
+						447711232343</td>
+					<td>
+						447766814143</td>
+					<td>
+						2011, 11, 11, 11, 11, 00</td>
+				</tr>
+				<tr>
+					<td>
+						enter</td>
+					<td>
+						endCall</td>
+					<td>
+						447711232343</td>
+					<td>
+						447766814143</td>
+					<td>
+						2011, 11, 11, 11, 11, 30</td>
+				</tr>
+				<tr>
+					<td>
+						check</td>
+					<td>
+						duration</td>
+					<td colspan="3" rowspan="1">
+						30</td>
+				</tr>
+			</tbody>
+		</table></body>
+</html>
