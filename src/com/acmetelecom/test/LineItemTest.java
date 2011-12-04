@@ -1,5 +1,9 @@
-package com.acmetelecom;
+package com.acmetelecom.test;
 
+import com.acmetelecom.Call;
+import com.acmetelecom.CallEnd;
+import com.acmetelecom.CallStart;
+import com.acmetelecom.LineItem;
 import com.acmetelecom.utils.CustomDate;
 import org.junit.Before;
 import org.junit.Test;
