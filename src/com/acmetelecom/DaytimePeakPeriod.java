@@ -3,7 +3,7 @@ package com.acmetelecom;
 import java.util.Calendar;
 import java.util.Date;
 
-class DaytimePeakPeriod {
+public class DaytimePeakPeriod {
 
     public boolean offPeak(Date time) {
         Calendar calendar = Calendar.getInstance();

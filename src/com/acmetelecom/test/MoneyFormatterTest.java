@@ -1,8 +1,10 @@
-package com.acmetelecom;
+package com.acmetelecom.test;
 
+import com.acmetelecom.MoneyFormatter;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+
 import static junit.framework.Assert.assertTrue;
 
 /**
