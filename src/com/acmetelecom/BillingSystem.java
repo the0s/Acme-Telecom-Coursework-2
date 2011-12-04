@@ -9,6 +9,4 @@ public class BillingSystem extends AbstractBillingSystem {
     public void callCompleted(String caller, String callee) {
         callLog.add(new CallEnd(caller, callee));
     }
-
-
 }

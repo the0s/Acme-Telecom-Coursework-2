@@ -53,11 +53,5 @@ public class CallTest {
 	@Test
 	public void testDate(){
 		assertEquals(this.call.date(), SimpleDateFormat.getInstance().format(new Date(start.time())));
-	}
-	
-	@Test
-	public void testStartTime(){
-		assertEquals(this.call.date(), SimpleDateFormat.getInstance().format(new Date(start.time())));
-	}
-	
+	}	
 }
