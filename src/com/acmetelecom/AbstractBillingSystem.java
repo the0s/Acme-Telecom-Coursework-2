@@ -33,15 +33,41 @@ public abstract class AbstractBillingSystem {
     }
 
     private void createBillFor(Customer customer) {
-        List<CallEvent> customerEvents = new ArrayList<CallEvent>();
-        for (CallEvent callEvent : callLog) {
-            if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
-                customerEvents.add(callEvent);
-            }
+
+        List<CallEvent> customerEvents = getCustomerEvents(customer);
+
+        List<Call> calls = getCallsDetails(customerEvents);
+
+        BigDecimal totalBill = new BigDecimal(0);
+        List<LineItem> items = new ArrayList<LineItem>();
+
+        for (Call call : calls) {
+            BigDecimal cost = calculateCallCost(customer, call);
+
+            cost = cost.setScale(0, RoundingMode.HALF_UP);
+            BigDecimal callCost = cost;
+            totalBill = totalBill.add(callCost);
+            items.add(new LineItem(call, callCost));
         }
 
-        List<Call> calls = new ArrayList<Call>();
+        GenerateBill(customer, totalBill, items);
+    }
 
+    private BigDecimal calculateCallCost(Customer customer, Call call) {
+        Tariff tariff = CentralTariffDatabase.getInstance().tarriffFor(customer);
+        BigDecimal cost;
+
+        DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
+        if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime()) && call.durationSeconds() < 12 * 60 * 60) {
+            cost = new BigDecimal(call.durationSeconds()).multiply(tariff.offPeakRate());
+        } else {
+            cost = new BigDecimal(call.durationSeconds()).multiply(tariff.peakRate());
+        }
+        return cost;
+    }
+
+    private List<Call> getCallsDetails(List<CallEvent> customerEvents) {
+        List<Call> calls = new ArrayList<Call>();
         CallEvent start = null;
         for (CallEvent event : customerEvents) {
             if (event instanceof CallStart) {
@@ -52,30 +78,17 @@ public abstract class AbstractBillingSystem {
                 start = null;
             }
         }
+        return calls;
+    }
 
-        BigDecimal totalBill = new BigDecimal(0);
-        List<LineItem> items = new ArrayList<LineItem>();
-
-        for (Call call : calls) {
-
-            Tariff tariff = CentralTariffDatabase.getInstance().tarriffFor(customer);
-
-            BigDecimal cost;
-
-            DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
-            if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime()) && call.durationSeconds() < 12 * 60 * 60) {
-                cost = new BigDecimal(call.durationSeconds()).multiply(tariff.offPeakRate());
-            } else {
-                cost = new BigDecimal(call.durationSeconds()).multiply(tariff.peakRate());
+    private List<CallEvent> getCustomerEvents(Customer customer) {
+        List<CallEvent> customerEvents = new ArrayList<CallEvent>();
+        for (CallEvent callEvent : callLog) {
+            if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
+                customerEvents.add(callEvent);
             }
-
-            cost = cost.setScale(0, RoundingMode.HALF_UP);
-            BigDecimal callCost = cost;
-            totalBill = totalBill.add(callCost);
-            items.add(new LineItem(call, callCost));
         }
-
-        GenerateBill(customer, totalBill, items);
+        return customerEvents;
     }
 
     protected abstract void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items);

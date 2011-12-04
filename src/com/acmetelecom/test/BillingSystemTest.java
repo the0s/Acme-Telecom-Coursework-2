@@ -3,8 +3,7 @@ package com.acmetelecom.test;
 
 import com.acmetelecom.AbstractBillingSystem;
 import com.acmetelecom.utils.BillingSystemFake;
-import org.jmock.integration.junit4.JUnitRuleMockery;
-import org.junit.Rule;
+import com.acmetelecom.utils.CustomDate;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -18,31 +17,35 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class BillingSystemTest {
-    @Rule
-    public final JUnitRuleMockery context = new JUnitRuleMockery();
+    //@Rule
+    //public final JUnitRuleMockery context = new JUnitRuleMockery();
 
     //Customer customer = context.mock(Customer.class);
 
 
     @Test
     public void createAndCheckBillsForCustomersNonPeak() {
+        CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 14, 20, 00);
         List<Long> times = new ArrayList<Long>();
-        times.add(new Long("1322950876823"));
-        times.add(new Long("1322950877823"));
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
         AbstractBillingSystem billingSystem = new BillingSystemFake(times);
-        billingSystem.callInitiated("447722113434", "447766814143");
-        billingSystem.callCompleted("447722113434", "447766814143");
+        billingSystem.callInitiated("447711232343", "447766814143");
+        billingSystem.callCompleted("447711232343", "447766814143");
         billingSystem.createCustomerBills();
     }
 
     @Test
     public void createAndCheckBillsForCustomersPeak() {
+        CustomDate startDate = new CustomDate(2011, 11, 11, 19, 00, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 19, 20, 00);
         List<Long> times = new ArrayList<Long>();
-        times.add(new Long("1322950876823"));
-        times.add(new Long("1322950877823"));
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
         AbstractBillingSystem billingSystem = new BillingSystemFake(times);
-        billingSystem.callInitiated("447722113434", "447766814143");
-        billingSystem.callCompleted("447722113434", "447766814143");
+        billingSystem.callInitiated("447711232343", "447766814143");
+        billingSystem.callCompleted("447711232343", "447766814143");
         billingSystem.createCustomerBills();
     }
 
@@ -52,8 +55,8 @@ public class BillingSystemTest {
 //           times.add(new Long("1322950876823"));
 //           times.add(new Long("1322950877823"));
 //           AbstractBillingSystem billingSystem = new BillingSystemFake(times);
-//           billingSystem.callInitiated("447722113434", "447766814143");
-//           billingSystem.callCompleted("447722113434", "447766814143");
+//        billingSystem.callInitiated("447711232343", "447766814143");
+//        billingSystem.callCompleted("447711232343", "447766814143");
 //           billingSystem.createCustomerBills();
 //       }
 //
@@ -63,8 +66,8 @@ public class BillingSystemTest {
 //           times.add(new Long("1322950876823"));
 //           times.add(new Long("1322950877823"));
 //           AbstractBillingSystem billingSystem = new BillingSystemFake(times);
-//           billingSystem.callInitiated("447722113434", "447766814143");
-//           billingSystem.callCompleted("447722113434", "447766814143");
+//        billingSystem.callInitiated("447711232343", "447766814143");
+//        billingSystem.callCompleted("447711232343", "447766814143");
 //           billingSystem.createCustomerBills();
 //       }
 }
