@@ -19,6 +19,4 @@ public class BillingSystem extends AbstractBillingSystem {
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
         new BillGenerator().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
-
-
 }

@@ -1,0 +1,117 @@
+<html><head><title>Suite SimpleCall.fit run at: Sun Dec 04 14:04:16 GMT 2011</title>
+	<link rel="stylesheet" type="text/css" href="css/fitnesse.css" media="screen"/>
+ 	<link rel="stylesheet" type="text/css" href="css/fitnesse.css" media="print"/>
+<script language="JavaScript" type="text/javascript">
+var collapsableOpenCss = "collapsable"
+var collapsableClosedCss = "hidden"
+var collapsableOpenImg = "images/collapsableOpen.gif"
+var collapsableClosedImg = "images/collapsableClosed.gif"
+function toggleCollapsable(id){
+var div = document.getElementById(id);
+var img = document.getElementById("img" + id);
+if(div.className.indexOf(collapsableClosedCss) != -1) {
+div.className = collapsableOpenCss;
+img.src = collapsableOpenImg;
+} else {
+div.className = collapsableClosedCss;
+img.src = collapsableClosedImg;
+} }
+</script>
+
+</head>
+<body>
+<div> Suite is: /home/george/Desktop/secw/Acme-Telecom-Coursework-2/acme/fit/SimpleCall.fit</div><div class="test_output_name">Name: SimpleCall.fit</div><div> Suite executed at: Sun Dec 04 14:04:16 GMT 2011 Elapsed time: 68 millseconds  </div><table><tr><td></td><td><a href="#-205ecb0b:1340963b4cd:-8000">SimpleCall.fit</a></td><td class="error">0 right, 0 wrong, 0 ignored, 2 exceptions</td></tr></table><div class="test_output_name"><a name="-205ecb0b:1340963b4cd:-8000"/><p>Test file: SimpleCall.fit</p></div><html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellpadding="1" cellspacing="1" style="width: 529px; height: 118px;">
+			<tbody>
+				<tr>
+					<td colspan="5">
+						fit.ActionFixture</td>
+				</tr>
+				<tr>
+					<td>
+						start</td>
+					<td colspan="4" rowspan="1">
+						SimpleCall</td>
+				</tr>
+				<tr>
+					<td>
+						enter</td>
+					<td>
+						startCall</td>
+					<td>
+						447711232343</td>
+					<td>
+						447766814143</td>
+					<td>
+						2011, 11, 11, 11, 11, 00</td>
+				</tr>
+				<tr>
+					<td class="error">
+						enter<hr/> <span class="fit_label">Could not find method: endCall.</span></td>
+					<td>
+						endCall</td>
+					<td>
+						447711232343</td>
+					<td>
+						447766814143</td>
+					<td>
+						2011, 11, 11, 11, 11, 30</td>
+				</tr>
+				<tr>
+					<td>
+						check</td>
+					<td>
+						duration</td>
+					<td colspan="3" rowspan="1" class="error">
+						30<hr><pre><div class="fit_stacktrace">java.lang.NullPointerException
+	at SimpleCall.duration(SimpleCall.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at fit.TypeAdapter.invoke(Unknown Source)
+	at fit.TypeAdapter.get(Unknown Source)
+	at fit.Fixture$CellComparator.compareCellToResult(Unknown Source)
+	at fit.Fixture$CellComparator.access$100(Unknown Source)
+	at fit.Fixture.compareCellToResult(Unknown Source)
+	at fit.Fixture.check(Unknown Source)
+	at fit.ActionFixture.check(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at fit.ActionFixture.doCells(Unknown Source)
+	at fit.Fixture.doRow(Unknown Source)
+	at fit.Fixture.doRows(Unknown Source)
+	at fit.Fixture.doTable(Unknown Source)
+	at fit.Fixture.interpretTables(Unknown Source)
+	at fit.Fixture.doTables(Unknown Source)
+	at fitlibrary.suite.IndependentSuiteRunner.runEachStorytest(IndependentSuiteRunner.java:53)
+	at fitlibrary.suite.IndependentSuiteRunner.runFirstStorytest(IndependentSuiteRunner.java:28)
+	at fitlibrary.suite.BatchFitLibrary.doTables(BatchFitLibrary.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:616)
+	at com.luxoft.fitpro.adapters.fit.FitLibraryFitProvider.doTables(FitLibraryFitProvider.java:168)
+	at com.luxoft.fitpro.adapters.fit.FitLibraryFitProvider.generateParseResult(FitLibraryFitProvider.java:96)
+	at com.luxoft.fitpro.adapters.fit.FitLibraryFitProvider.runSingleFITTest(FitLibraryFitProvider.java:78)
+	at com.luxoft.fitpro.adapters.fit.FitLibraryFitProvider.runValidTestFile(FitLibraryFitProvider.java:58)
+	at com.luxoft.fitpro.adapters.fit.FitLibraryFitProvider.runFIT(FitLibraryFitProvider.java:39)
+	at com.luxoft.fitpro.core.testcase.SequentialRunnerStrategy.run(SequentialRunnerStrategy.java:18)
+	at com.luxoft.fitpro.core.tester.RunnerVisitor.runTest(RunnerVisitor.java:59)
+	at com.luxoft.fitpro.core.tester.RunnerVisitor.visit(RunnerVisitor.java:51)
+	at com.luxoft.fitpro.core.testcase.TestFile.accept(TestFile.java:51)
+	at com.luxoft.fitpro.runner.TestCaseRunner.run(TestCaseRunner.java:100)
+	at com.luxoft.fitpro.runner.TestCaseRunner.main(TestCaseRunner.java:55)
+</div></pre></td>
+				</tr>
+			</tbody>
+		</table></body>
+</html>
+
+</body></html>

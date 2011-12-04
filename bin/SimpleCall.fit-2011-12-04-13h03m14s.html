@@ -1,0 +1,76 @@
+<html><head><title>Suite SimpleCall.fit run at: Sun Dec 04 13:03:14 GMT 2011</title>
+	<link rel="stylesheet" type="text/css" href="css/fitnesse.css" media="screen"/>
+ 	<link rel="stylesheet" type="text/css" href="css/fitnesse.css" media="print"/>
+<script language="JavaScript" type="text/javascript">
+var collapsableOpenCss = "collapsable"
+var collapsableClosedCss = "hidden"
+var collapsableOpenImg = "images/collapsableOpen.gif"
+var collapsableClosedImg = "images/collapsableClosed.gif"
+function toggleCollapsable(id){
+var div = document.getElementById(id);
+var img = document.getElementById("img" + id);
+if(div.className.indexOf(collapsableClosedCss) != -1) {
+div.className = collapsableOpenCss;
+img.src = collapsableOpenImg;
+} else {
+div.className = collapsableClosedCss;
+img.src = collapsableClosedImg;
+} }
+</script>
+
+</head>
+<body>
+<div> Suite is: /home/george/Desktop/secw/Acme-Telecom-Coursework-2/acme/fit/SimpleCall.fit</div><div class="test_output_name">Name: SimpleCall.fit</div><div> Suite executed at: Sun Dec 04 13:03:14 GMT 2011 Elapsed time: 85 millseconds  </div><table><tr><td></td><td><a href="#24f7fd86:134092bd351:-8000">SimpleCall.fit</a></td><td class="fail">0 right, 1 wrong, 0 ignored, 0 exceptions</td></tr></table><div class="test_output_name"><a name="24f7fd86:134092bd351:-8000"/><p>Test file: SimpleCall.fit</p></div><html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellpadding="1" cellspacing="1" style="width: 529px; height: 118px;">
+			<tbody>
+				<tr>
+					<td colspan="5">
+						fit.ActionFixture</td>
+				</tr>
+				<tr>
+					<td>
+						start</td>
+					<td colspan="4" rowspan="1">
+						SimpleCall</td>
+				</tr>
+				<tr>
+					<td>
+						enter</td>
+					<td>
+						startCall</td>
+					<td>
+						447711232343</td>
+					<td>
+						447766814143</td>
+					<td>
+						2011, 11, 11, 11, 11, 00</td>
+				</tr>
+				<tr>
+					<td>
+						enter</td>
+					<td>
+						endCall</td>
+					<td>
+						447711232343</td>
+					<td>
+						447766814143</td>
+					<td>
+						2011, 11, 11, 11, 11, 30</td>
+				</tr>
+				<tr>
+					<td>
+						check</td>
+					<td>
+						duration</td>
+					<td colspan="3" rowspan="1" class="fail">
+						30 <span class="fit_label">expected</span><hr>null <span class="fit_label">actual</span></td>
+				</tr>
+			</tbody>
+		</table></body>
+</html>
+
+</body></html>
