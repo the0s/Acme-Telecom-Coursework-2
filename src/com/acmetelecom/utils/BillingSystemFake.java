@@ -1,9 +1,9 @@
 package com.acmetelecom.utils;
 
-import com.acmetelecom.AbstractBillingSystem;
-import com.acmetelecom.CallEnd;
-import com.acmetelecom.CallStart;
+import com.acmetelecom.*;
+import com.acmetelecom.customer.Customer;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -16,7 +16,7 @@ import java.util.List;
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
 
-    public BillingSystemFake(List<Long> times){
+    public BillingSystemFake(List<Long> times) {
         super();
         this.times = times;
     }
@@ -28,5 +28,10 @@ public class BillingSystemFake extends AbstractBillingSystem {
 
     public void callCompleted(String caller, String callee) {
         callLog.add(new CallEnd(caller, callee, times.get(1)));
+    }
+
+    @Override
+    protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
+        new BillGeneratorUtil().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 }
