@@ -16,11 +16,16 @@ import java.util.List;
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
     
-    public BillingSystemFake(List<Long> times) {
+    public BillingSystemFake() {
         super();
-        this.times = times;
+        this.times = null;
     }
 
+    public void setTimes(List<Long> times){
+    	//This method is used only in test environment to input custom times
+    	this.times = times;
+    }
+    
     public void callInitiated(String caller, String callee) {
 
         callLog.add(new CallStart(caller, callee, times.get(0)));
