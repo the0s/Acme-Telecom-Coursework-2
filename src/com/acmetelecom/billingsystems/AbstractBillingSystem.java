@@ -1,6 +1,5 @@
 package com.acmetelecom.billingsystems;
 
-import com.acmetelecom.billingsystems.loggers.CallLogger;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.CentralTariffDatabase;
 import com.acmetelecom.customer.Customer;
@@ -8,7 +7,6 @@ import com.acmetelecom.customer.Tariff;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +19,13 @@ import java.util.List;
  */
 public abstract class AbstractBillingSystem {
     //protected List<CallEvent> callLog = new ArrayList<CallEvent>();
-    protected Logger callLog = new CallLogger();
+    protected Logger callLog;
+    protected Report billReport;
+
+    public AbstractBillingSystem(Logger logger, Report billReport){
+        this.callLog = logger;
+        this.billReport = billReport;
+    }
 
     public abstract void callInitiated(String caller, String callee);
 
@@ -32,28 +36,31 @@ public abstract class AbstractBillingSystem {
         for (Customer customer : customers) {
             createBillFor(customer);
         }
-        callLog.clear();
+        callLog.clear();       //TODO giati clear?
     }
 
     private void createBillFor(Customer customer) {
 
-        List<CallEvent> customerEvents = getCustomerEvents(customer);
+        //List<CallEvent> customerEvents = callLog.getCustomerEvents(customer);
 
-        List<Call> calls = getCallsDetails(customerEvents);
-
+        List<Call> calls = callLog.getCallsDetailsOf(customer);
         BigDecimal totalBill = new BigDecimal(0);
-        List<LineItem> items = new ArrayList<LineItem>();
+
+        //List<LineItem> items = new ArrayList<LineItem>();
 
         for (Call call : calls) {
             BigDecimal cost = calculateCallCost(customer, call);
-
             cost = cost.setScale(0, RoundingMode.HALF_UP);
             BigDecimal callCost = cost;
             totalBill = totalBill.add(callCost);
-            items.add(new LineItem(call, callCost));
+            //items.add(new LineItem(call, callCost));
+            billReport.add(new LineItem(call, callCost));
         }
+        //billReport.clear(); TODO clearing should be done!!!!!
 
-        GenerateBill(customer, totalBill, items);
+        billReport.addCustomerBill(customer,totalBill);
+
+        GenerateBill(customer, totalBill, billReport.getCalls());
     }
 
     private BigDecimal calculateCallCost(Customer customer, Call call) {
@@ -104,30 +111,30 @@ public abstract class AbstractBillingSystem {
         return (int) ((end.getTime() - start.getTime()) / 1000);
     }
 
-    private List<Call> getCallsDetails(List<CallEvent> customerEvents) {
-        List<Call> calls = new ArrayList<Call>();
-        CallEvent start = null;
-        for (CallEvent event : customerEvents) {
-            if (event instanceof CallStart) {
-                start = event;
-            }
-            if (event instanceof CallEnd && start != null) {
-                calls.add(new Call(start, event));
-                start = null;
-            }
-        }
-        return calls;
-    }
+//    private List<Call> getCallsDetails(List<CallEvent> customerEvents) {
+//        List<Call> calls = new ArrayList<Call>();
+//        CallEvent start = null;
+//        for (CallEvent event : customerEvents) {
+//            if (event instanceof CallStart) {
+//                start = event;
+//            }
+//            if (event instanceof CallEnd && start != null) {
+//                calls.add(new Call(start, event));
+//                start = null;
+//            }
+//        }
+//        return calls;
+//    }
 
-    private List<CallEvent> getCustomerEvents(Customer customer) {
-        List<CallEvent> customerEvents = new ArrayList<CallEvent>();
-        for (CallEvent callEvent : callLog.getEvents()) {
-            if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
-                customerEvents.add(callEvent);
-            }
-        }
-        return customerEvents;
-    }
+//    private List<CallEvent> getCustomerEvents(Customer customer) {
+//        List<CallEvent> customerEvents = new ArrayList<CallEvent>();
+//        for (CallEvent callEvent : callLog.getEvents()) {
+//            if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
+//                customerEvents.add(callEvent);
+//            }
+//        }
+//        return customerEvents;
+//    }
 
     protected abstract void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items);
 

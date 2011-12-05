@@ -9,6 +9,10 @@ import java.util.List;
 
 public class BillingSystem extends AbstractBillingSystem {
 
+    public BillingSystem(Logger logger, Report report) {
+        super(logger, report);
+    }
+
     public void callInitiated(String caller, String callee) {
         callLog.add(new CallStart(caller, callee));
     }

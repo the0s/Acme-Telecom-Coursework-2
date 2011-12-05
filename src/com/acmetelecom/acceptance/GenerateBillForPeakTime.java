@@ -1,6 +1,8 @@
 package com.acmetelecom.acceptance;
 
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.billingsystems.loggers.CallLogger;
+import com.acmetelecom.billingsystems.reports.BillReport;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
@@ -40,7 +42,7 @@ public class GenerateBillForPeakTime extends RowFixture{
         List<Long> times = new ArrayList<Long>();
         times.add(startDate.getDate().getTime());
         times.add(endDate.getDate().getTime());
-        AbstractBillingSystem billingSystem = new BillingSystemFake();
+        AbstractBillingSystem billingSystem = new BillingSystemFake(new CallLogger(), new BillReport());
         ((BillingSystemFake) billingSystem).setTimes(times);
 		
         billingSystem.callInitiated("447711232343", "callee");

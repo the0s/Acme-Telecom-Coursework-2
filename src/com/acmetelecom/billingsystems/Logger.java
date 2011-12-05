@@ -1,5 +1,8 @@
 package com.acmetelecom.billingsystems;
 
+import com.acmetelecom.customer.Customer;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -10,7 +13,9 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface Logger {
-    List<CallEvent> getEvents();
-    void clear();
-    void add(CallEvent callEvent);
+    public void clear();
+    public void add(CallEvent callEvent);
+    public List<Call> getCallsDetailsOf(Customer customer);
+
+
 }
