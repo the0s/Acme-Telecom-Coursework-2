@@ -47,7 +47,6 @@ public class BillingSystemTest {
         this.tariff = CentralTariffDatabase.getInstance().tarriffFor(this.customer);
     }
 
-
     @Test
     public void createAndCheckBillsForCustomersPeak() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
