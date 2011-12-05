@@ -1,5 +1,6 @@
 package com.acmetelecom.billingsystems.billinggenerators;
 
+import com.acmetelecom.billingsystems.BillGeneratorInterface;
 import com.acmetelecom.billingsystems.LineItem;
 import com.acmetelecom.billingsystems.printers.HtmlPrinter;
 import com.acmetelecom.billingsystems.printers.Printer;

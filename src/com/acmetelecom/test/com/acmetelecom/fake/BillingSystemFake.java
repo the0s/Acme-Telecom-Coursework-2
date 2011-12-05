@@ -16,9 +16,11 @@ import java.util.List;
  */
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
-    
-    public BillingSystemFake(Logger logger, Report report) {
+    private BillGeneratorInterface billGenerator;
+
+    public BillingSystemFake(BillGeneratorInterface billGenerator, Logger logger, Report report) {
         super(logger, report);
+        this.billGenerator = billGenerator;
         this.times = null;
     }
 
@@ -38,7 +40,7 @@ public class BillingSystemFake extends AbstractBillingSystem {
 
     @Override
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-    	new BillGeneratorFake().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
+    	this.billGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 
 }

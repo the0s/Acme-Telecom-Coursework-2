@@ -1,4 +1,4 @@
-package com.acmetelecom.factories;
+package com.acmetelecom;
 
 public class FactoryMaker {
 	
