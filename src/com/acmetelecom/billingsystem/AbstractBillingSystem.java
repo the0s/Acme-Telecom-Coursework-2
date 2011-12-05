@@ -54,7 +54,6 @@ public abstract class AbstractBillingSystem {
         }
         billReport.addCustomerBill(customer,totalBill);
         GenerateBill(customer, totalBill, billReport.getCalls());
-        //TODO need to fix the clear.. cannot clear only half and leave the rest growing? I think is fixed:P
         billReport.clearCalls();
     }
 

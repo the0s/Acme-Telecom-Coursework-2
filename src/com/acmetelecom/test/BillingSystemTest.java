@@ -48,7 +48,7 @@ public class BillingSystemTest {
     }
 
     @Test
-    public void createAndCheckBillsForCustomersPeak() {
+    public void customerCallsDuringPeakOnlyForLessThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 14, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -62,7 +62,7 @@ public class BillingSystemTest {
     }
 
     @Test
-    public void createAndCheckBillsForCustomersOffPeak() {
+    public void customerCallsDuringOffPeakOnlyForLessThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 19, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 19, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -76,7 +76,7 @@ public class BillingSystemTest {
     }
 
     @Test
-    public void createAndCheckBillsForCustomersOffPeakToPeak() {
+    public void customerCallsDuringOffPeakAndEntertsPeakForLessThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 06, 40, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 07, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -91,7 +91,7 @@ public class BillingSystemTest {
 
 
     @Test
-    public void createAndCheckBillsForCustomersPeakToOffPeak() {
+    public void customerCallsDuringPeakAndEntertsOffPeakForLessThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 18, 40, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 19, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -105,7 +105,7 @@ public class BillingSystemTest {
     }
 
     @Test
-    public void createAndCheckBillsForCustomersPeakToOffPeakToPeak() {
+    public void customerCallsDuringPeakPassesOffPeakAndReachesPeakAgainMoreThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 18, 40, 00);
         CustomDate endDate = new CustomDate(2011, 11, 12, 07, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -119,7 +119,7 @@ public class BillingSystemTest {
     }
 
     @Test
-    public void createAndCheckBillsForCustomersOffPeakToPeakToOffPeak() {
+    public void customerCallsDuringOffPeakPassesPeakAndReachesOffPeakAgainMoreThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 06, 40, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 19, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -129,6 +129,62 @@ public class BillingSystemTest {
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(40 * 60, 12 * 60 * 60);
+        assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
+    }
+
+    @Test
+    public void customerCallsDuringOffPeakAndDateChangesLessThan12Hours(){
+        CustomDate startDate = new CustomDate(2011, 11, 11, 19, 20, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 06, 20, 00);
+        List<Long> times = new ArrayList<Long>();
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
+        ((BillingSystemFake) billingSystem).setTimes(times);
+        makeTestCall(billingSystem);
+        BigDecimal totalBill = getTotalBillOfCaller();
+        BigDecimal calculatedBill = getCalculatedCost(11* 60 * 60, 0);
+        assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
+    }
+
+    @Test
+    public void customerCallsDuringOffPeakAndDateChangesAndEntersPeak(){
+        CustomDate startDate = new CustomDate(2011, 11, 11, 19, 20, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 9, 20, 00);
+        List<Long> times = new ArrayList<Long>();
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
+        ((BillingSystemFake) billingSystem).setTimes(times);
+        makeTestCall(billingSystem);
+        BigDecimal totalBill = getTotalBillOfCaller();
+        BigDecimal calculatedBill = getCalculatedCost(700 * 60, 140*60);
+        assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
+    }
+
+    @Test
+    public void customerCallsOnBoundariesPeakEqualTo12Hours(){
+        CustomDate startDate = new CustomDate(2011, 11, 11, 7, 00, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 19, 20, 00);
+        List<Long> times = new ArrayList<Long>();
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
+        ((BillingSystemFake) billingSystem).setTimes(times);
+        makeTestCall(billingSystem);
+        BigDecimal totalBill = getTotalBillOfCaller();
+        BigDecimal calculatedBill = getCalculatedCost(0, 12*60*60);
+        assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
+    }
+
+     @Test
+    public void customerCallsOnBoundariesOffPeakEqualTo12Hours(){
+        CustomDate startDate = new CustomDate(2011, 11, 11, 19, 00, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 07, 20, 00);
+        List<Long> times = new ArrayList<Long>();
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
+        ((BillingSystemFake) billingSystem).setTimes(times);
+        makeTestCall(billingSystem);
+        BigDecimal totalBill = getTotalBillOfCaller();
+        BigDecimal calculatedBill = getCalculatedCost(12*60*60,0);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
