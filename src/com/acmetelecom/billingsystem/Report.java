@@ -18,7 +18,7 @@ public interface Report {
     List<LineItem> getCalls();
 
     void clear();
-
+    void clearCalls();
     void addCustomerBill(Customer customer, BigDecimal totalBill);
     public BigDecimal getTotalBillOf(Customer customer);
 }

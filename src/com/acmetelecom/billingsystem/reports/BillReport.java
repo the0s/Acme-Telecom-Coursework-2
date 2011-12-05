@@ -34,6 +34,10 @@ public class BillReport implements Report {
         this.customerBills.clear();
     }
 
+    public void clearCalls(){
+        this.calls.clear();
+    }
+
     public void addCustomerBill(Customer customer, BigDecimal totalBill) {
         this.customerBills.put(customer.getPhoneNumber(),totalBill);
     }

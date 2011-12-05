@@ -134,7 +134,7 @@ public class BillingSystemTest {
 
     private BigDecimal getTotalBillOfCaller() {
         BigDecimal total =  billingSystem.getBillReport().getTotalBillOf(customer);
-        billingSystem.clear();
+        //billingSystem.clear();
         return total;
     }
 
