@@ -69,12 +69,12 @@ public abstract class AbstractBillingSystem {
             } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
                 cost = getCost(tariff, 0, call.durationSeconds());
             } else if (peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
-                Date peakStart = getPeakStart(call.startTime());
+                Date peakStart = peakPeriod.getPeakStart(call.startTime());
                 int offPeakDuration = getDurationInSeconds(call.startTime(), peakStart);
                 int peakDuration = call.durationSeconds() - offPeakDuration;
                 cost = getCost(tariff, offPeakDuration, peakDuration);
             } else if (!peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
-                Date peakEnd = getPeakEnd(call.startTime());
+                Date peakEnd = peakPeriod.getPeakEnd(call.startTime());
                 int peakDuration = getDurationInSeconds(call.startTime(), peakEnd);
                 int offPeakDuration = call.durationSeconds() - peakDuration;
                 cost = getCost(tariff, offPeakDuration, peakDuration);
@@ -102,18 +102,6 @@ public abstract class AbstractBillingSystem {
 
     private int getDurationInSeconds(Date start, Date end) {
         return (int) ((end.getTime() - start.getTime()) / 1000);
-    }
-
-    private Date getPeakStart(Date callStart) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(callStart);
-        return new CustomDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 07, 00, 00).getDate();
-    }
-
-    private Date getPeakEnd(Date callStart) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(callStart);
-        return new CustomDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), 19, 00, 00).getDate();
     }
 
     private List<Call> getCallsDetails(List<CallEvent> customerEvents) {

@@ -4,6 +4,7 @@ import com.acmetelecom.BillGeneratorInterface;
 import com.acmetelecom.LineItem;
 import com.acmetelecom.MoneyFormatter;
 import com.acmetelecom.Printer;
+import com.acmetelecom.PrinterFactory;
 import com.acmetelecom.customer.Customer;
 
 import java.util.List;
@@ -15,10 +16,10 @@ import java.util.List;
  * Time: 23:08
  * To change this template use File | Settings | File Templates.
  */
-public class BillGeneratorUtil implements BillGeneratorInterface {
+public class BillGeneratorFake implements BillGeneratorInterface {
 	
     public void send(Customer customer, List<LineItem> calls, String totalBill) {
-        Printer printer = ConsolePrinter.getInstance();
+        Printer printer = PrinterFactory.createConsolePrinter();
         FilePrinter filePrinter = FilePrinter.getInstance();
         printer.printHeading(customer.getFullName(), customer.getPhoneNumber(), customer.getPricePlan());
         for (LineItem call : calls) {

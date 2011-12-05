@@ -32,7 +32,8 @@ public class BillingSystemFake extends AbstractBillingSystem {
 
     @Override
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-        new BillGeneratorUtil().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
+        BillGeneratorInterface billGenerator = BillGeneratorFactory.createBillGeneratorFake();
+    	billGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 
 }

@@ -1,7 +1,7 @@
 package com.acmetelecom;
 
 import com.acmetelecom.customer.Customer;
-import com.acmetelecom.utils.BillGeneratorUtil;
+import com.acmetelecom.utils.BillGeneratorFake;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -18,6 +18,6 @@ public class BillingSystemFIT extends AbstractBillingSystem {
 
     @Override
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-        new BillGeneratorUtil().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
+        new BillGeneratorFake().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 }

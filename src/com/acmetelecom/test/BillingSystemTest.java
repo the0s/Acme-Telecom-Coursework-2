@@ -55,7 +55,7 @@ public class BillingSystemTest {
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = getCalculatedCost(0, 20*60);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
-        FilePrinter.getInstance().deleteFile();
+        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -70,7 +70,7 @@ public class BillingSystemTest {
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = getCalculatedCost(20*60, 0);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
-        FilePrinter.getInstance().deleteFile();
+        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -85,7 +85,7 @@ public class BillingSystemTest {
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = getCalculatedCost(20*60, 20*60);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
-        FilePrinter.getInstance().deleteFile();
+        //FilePrinter.getInstance().deleteFile();
     }
 
 
@@ -101,7 +101,7 @@ public class BillingSystemTest {
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = getCalculatedCost(20*60, 20*60);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
-        FilePrinter.getInstance().deleteFile();
+        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -116,7 +116,7 @@ public class BillingSystemTest {
         String totalBill = FilePrinter.getInstance().readFile(caller);
         BigDecimal calculatedBill = getCalculatedCost(12*60*60, 40*60);
         assertThat(totalBill, is(MoneyFormatter.penceToPounds(calculatedBill).toString()));
-        FilePrinter.getInstance().deleteFile();
+        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test

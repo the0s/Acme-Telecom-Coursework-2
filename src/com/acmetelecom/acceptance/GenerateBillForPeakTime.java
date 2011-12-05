@@ -46,6 +46,7 @@ public class GenerateBillForPeakTime extends RowFixture{
         int lineCount = 0;
         for (Customer customer : customers) {
         	String totalBill = FilePrinter.getInstance().readFile(customer.getPhoneNumber());
+        	totalBill = (totalBill != null) ? "0" : "0";
         	Row row = new Row(customer.getPhoneNumber(), "11/11/2011 14:00:00", "11/11/2011 14:20:00", totalBill);
         	rows.add(lineCount, row);
         	lineCount++;
