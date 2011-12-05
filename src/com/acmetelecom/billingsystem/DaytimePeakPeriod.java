@@ -1,17 +1,17 @@
 package com.acmetelecom.billingsystem;
 
+import com.acmetelecom.configs.CommonConfig;
 import com.acmetelecom.utils.CustomDate;
-import com.acmetelecom.utils.DatetimePeakPeriodEnum;
 
 import java.util.Calendar;
 import java.util.Date;
 
-//TODO LOOKs Like a utility class --> should be converted into static ?
-//Todo hardcoded data to config
+//TODO Converted TO Static
+
 public class DaytimePeakPeriod {
     
-	private final static int peakStart = DatetimePeakPeriodEnum.PEAKSTART.getDatetimePeakPeriodTime();
-	private final static int peakEnd = DatetimePeakPeriodEnum.PEAKEND.getDatetimePeakPeriodTime();
+	private final static int peakStart = CommonConfig.peakStart;
+	private final static int peakEnd = CommonConfig.peakEnd;
 	
 	public boolean offPeak(Date time) {
         Calendar calendar = getCalendarInstance(time);

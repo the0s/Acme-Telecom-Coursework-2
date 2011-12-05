@@ -112,4 +112,9 @@ public abstract class AbstractBillingSystem {
     	this.billingGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 
+    public void clear(){
+        this.billReport.clear();
+        this.callLog.clear();
+    }
+
 }
