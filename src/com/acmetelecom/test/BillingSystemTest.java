@@ -3,6 +3,7 @@ package com.acmetelecom.test;
 
 import com.acmetelecom.AbstractBillingSystem;
 import com.acmetelecom.MoneyFormatter;
+import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.CentralTariffDatabase;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.customer.Tariff;

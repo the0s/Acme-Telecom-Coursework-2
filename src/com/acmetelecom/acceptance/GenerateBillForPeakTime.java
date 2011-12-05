@@ -1,55 +1,57 @@
 package com.acmetelecom.acceptance;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.acmetelecom.AbstractBillingSystem;
-import com.acmetelecom.Call;
-import com.acmetelecom.CallEnd;
-import com.acmetelecom.CallEvent;
-import com.acmetelecom.CallStart;
+import com.acmetelecom.BillingSystem;
+import com.acmetelecom.BillingSystemFIT;
+import com.acmetelecom.customer.CentralCustomerDatabase;
+import com.acmetelecom.customer.Customer;
 import com.acmetelecom.utils.BillingSystemFake;
+import com.acmetelecom.utils.FilePrinter;
 
-import fit.ActionFixture;
+import fit.RowFixture;
 
-public class GenerateBillForPeakTime extends ActionFixture{
-	private Call call;
-	private Date startDate;
-	private Date endDate;
-	private CallEvent start;
-	private CallEvent end;
-	private String caller;
-	private String callee;
+public class GenerateBillForPeakTime extends RowFixture{
+
+    public static class Row {
+    	public String Caller;
+        public String StartDate;
+        public String EndDate;
+        public String Cost;
+    	
+	    public Row(String Caller,String StartDate, String EndDate, String Cost) {
+	        this.Caller = Caller;
+	        this.StartDate = StartDate;
+	        this.EndDate = EndDate;
+	        this.Cost = Cost;
+	    }
+    }
 	
-	public void theCallerIs(String caller){
-		this.caller = caller;
-	}
-	
-	public void theCalleeIs(String callee){
-		this.callee = callee;
-	}
-	
-	public void callerStartedAt(Date start){
-		this.startDate = start;
-	}
-	
-	public void callerEndedAt(Date end){
-		this.endDate = end;
-	}
-	
-	public void amountPaid(){
-		this.start = new CallStart(caller, callee, startDate);
-		this.end = new CallEnd(caller, callee, endDate);
-		this.call = new Call(start, end);
-		
-		List<Long> times = new ArrayList<Long>();
-        times.add(startDate.getTime());
-        times.add(endDate.getTime());
-		AbstractBillingSystem billingSystem = new BillingSystemFake(times);
-		billingSystem.callInitiated(caller, callee);
-        billingSystem.callCompleted(caller, callee);
-        billingSystem.createCustomerBills();		
-	}
+	@Override
+    public Class<?> getTargetClass() {
+        return Row.class;
+    }
+
+	@Override
+    public Object[] query() throws Exception {		
+        AbstractBillingSystem billingSystem = new BillingSystemFIT();
+        billingSystem.callInitiated("447711232343", "callee");
+        billingSystem.callCompleted("447711232343", "callee");
+        billingSystem.createCustomerBills();
+        List<Row> rows = new ArrayList<Row>();
+        
+        List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
+        int lineCount = 0;
+        for (Customer customer : customers) {
+        	String totalBill = FilePrinter.getInstance().readFile(customer.getPhoneNumber());
+        	Row row = new Row(customer.getPhoneNumber(), "11/11/2011 14:00:00", "11/11/2011 14:20:00", totalBill);
+        	rows.add(lineCount, row);
+        	lineCount++;
+        }
+        
+        return rows.toArray();
+    }
 	
 }

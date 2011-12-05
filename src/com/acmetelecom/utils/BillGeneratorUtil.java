@@ -16,7 +16,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class BillGeneratorUtil implements BillGeneratorInterface {
-
+	
     public void send(Customer customer, List<LineItem> calls, String totalBill) {
         Printer printer = ConsolePrinter.getInstance();
         FilePrinter filePrinter = FilePrinter.getInstance();

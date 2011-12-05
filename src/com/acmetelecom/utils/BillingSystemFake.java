@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
-
+    
     public BillingSystemFake(List<Long> times) {
         super();
         this.times = times;
@@ -34,4 +34,5 @@ public class BillingSystemFake extends AbstractBillingSystem {
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
         new BillGeneratorUtil().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
+
 }
