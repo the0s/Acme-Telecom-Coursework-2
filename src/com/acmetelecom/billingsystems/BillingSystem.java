@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class BillingSystem extends AbstractBillingSystem {
-    private BillGeneratorInterface billingGenerator = null
+    private BillGeneratorInterface billingGenerator = null;
 
     public BillingSystem(BillGeneratorInterface billingGenerator,Logger logger, Report report) {
         super(logger, report);

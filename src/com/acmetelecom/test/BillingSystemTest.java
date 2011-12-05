@@ -171,7 +171,7 @@ public class BillingSystemTest {
         makeTestCall(billingSystem);
         BigDecimal totalBill = billReport.getTotalBillOf(customer);
         //String totalBill = FilePrinter.getInstance().readFile(caller);
-        BigDecimal calculatedBill = getCalculatedCost(40 * 60, 12 * 60 * 60);
+        BigDecimal calculatedBill = getCalculatedCost(40 * 60, 12 * 60 * 160);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
 
         //FilePrinter.getInstance().deleteFile();
