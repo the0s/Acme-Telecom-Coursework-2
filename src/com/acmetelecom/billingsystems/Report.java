@@ -9,13 +9,16 @@ import java.util.List;
  * Created by IntelliJ IDEA.
  * User: The0s
  * Date: 05/12/11
- * Time: 15:15
+ * Time: 17:00
  * To change this template use File | Settings | File Templates.
  */
-public interface Logger {
-    public void clear();
-    public void add(CallEvent callEvent);
-    public List<Call> getCallsDetailsOf(Customer customer);
+public interface Report {
+    public void add(LineItem call);
 
+    List<LineItem> getCalls();
 
+    void clear();
+
+    void addCustomerBill(Customer customer, BigDecimal totalBill);
+    public BigDecimal getTotalBillOf(Customer customer);
 }
