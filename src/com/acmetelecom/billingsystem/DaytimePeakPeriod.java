@@ -1,6 +1,7 @@
 package com.acmetelecom.billingsystem;
 
 import com.acmetelecom.utils.CustomDate;
+import com.acmetelecom.utils.DatetimePeakPeriodEnum;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,8 +10,8 @@ import java.util.Date;
 //Todo hardcoded data to config
 public class DaytimePeakPeriod {
     
-	private final static int peakStart = 7;
-	private final static int peakEnd = 19;
+	private final static int peakStart = DatetimePeakPeriodEnum.PEAKSTART.getDatetimePeakPeriodTime();
+	private final static int peakEnd = DatetimePeakPeriodEnum.PEAKEND.getDatetimePeakPeriodTime();
 	
 	public boolean offPeak(Date time) {
         Calendar calendar = getCalendarInstance(time);

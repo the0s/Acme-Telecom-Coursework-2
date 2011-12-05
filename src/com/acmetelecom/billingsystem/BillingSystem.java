@@ -1,17 +1,10 @@
 package com.acmetelecom.billingsystem;
 
-import com.acmetelecom.customer.Customer;
-import com.acmetelecom.utils.MoneyFormatter;
-
-import java.math.BigDecimal;
-import java.util.List;
-
 public class BillingSystem extends AbstractBillingSystem {
-    private BillGeneratorInterface billingGenerator = null;
+
 
     public BillingSystem(BillGeneratorInterface billingGenerator,Logger logger, Report report) {
-        super(logger, report);
-        this.billingGenerator = billingGenerator;
+        super(billingGenerator, logger, report);
     }
 
     public void callInitiated(String caller, String callee) {
@@ -22,9 +15,6 @@ public class BillingSystem extends AbstractBillingSystem {
         callLog.add(new CallEnd(caller, callee));
     }
 
-    @Override
-    protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-    	this.billingGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
-    }
+
 
 }

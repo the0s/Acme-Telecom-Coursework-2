@@ -1,15 +1,5 @@
 package com.acmetelecom.test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import com.acmetelecom.AbstractFactory;
 import com.acmetelecom.FactoryMaker;
 import com.acmetelecom.billingsystem.AbstractBillingSystem;
@@ -21,6 +11,15 @@ import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.CustomerFind;
 import com.acmetelecom.utils.MoneyFormatter;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 
 /**
@@ -42,7 +41,6 @@ public class BillingSystemTest {
     public void init() {
     	AbstractFactory factory = FactoryMaker.getTestFactory();
         this.billingSystem = factory.createBillingSystem();
-
         this.caller = "447711232343";
         this.callee = "447766814143";
         this.customer = CustomerFind.getCustomerFromNumber(this.caller);
@@ -59,11 +57,9 @@ public class BillingSystemTest {
         times.add(endDate.getDate().getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
-        BigDecimal totalBill = billingSystem.getBillReport().getTotalBillOf(customer);
-        //String totalBill = FilePrinter.getInstance().readFile(caller);
+        BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(0, 20*60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
-        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -75,12 +71,9 @@ public class BillingSystemTest {
         times.add(endDate.getDate().getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
-        BigDecimal totalBill = billingSystem.getBillReport().getTotalBillOf(customer);
-        //String totalBill = FilePrinter.getInstance().readFile(caller);
+        BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(20*60, 0);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
-
-        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -92,12 +85,9 @@ public class BillingSystemTest {
         times.add(endDate.getDate().getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
-        BigDecimal totalBill = billingSystem.getBillReport().getTotalBillOf(customer);
-        //String totalBill = FilePrinter.getInstance().readFile(caller);
+        BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(20*60, 20*60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
-
-        //FilePrinter.getInstance().deleteFile();
     }
 
 
@@ -110,12 +100,9 @@ public class BillingSystemTest {
         times.add(endDate.getDate().getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
-        BigDecimal totalBill = billingSystem.getBillReport().getTotalBillOf(customer);
-        //String totalBill = FilePrinter.getInstance().readFile(caller);
+        BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(20 * 60, 20 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
-
-        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -127,12 +114,9 @@ public class BillingSystemTest {
         times.add(endDate.getDate().getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
-        BigDecimal totalBill = billingSystem.getBillReport().getTotalBillOf(customer);
-        //String totalBill = FilePrinter.getInstance().readFile(caller);
+        BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(12 * 60 * 60, 40 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
-
-        //FilePrinter.getInstance().deleteFile();
     }
 
     @Test
@@ -144,12 +128,13 @@ public class BillingSystemTest {
         times.add(endDate.getDate().getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
-        BigDecimal totalBill = billingSystem.getBillReport().getTotalBillOf(customer);
-        //String totalBill = FilePrinter.getInstance().readFile(caller);
+        BigDecimal totalBill = getTotalBillOfCaller();
         BigDecimal calculatedBill = getCalculatedCost(40 * 60, 12 * 60 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
+    }
 
-        //FilePrinter.getInstance().deleteFile();
+    private BigDecimal getTotalBillOfCaller() {
+        return billingSystem.getBillReport().getTotalBillOf(customer);
     }
 
     private void makeTestCall(AbstractBillingSystem billingSystem) {

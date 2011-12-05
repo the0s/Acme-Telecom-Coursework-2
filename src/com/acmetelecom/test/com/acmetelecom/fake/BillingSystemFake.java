@@ -1,10 +1,7 @@
 package com.acmetelecom.test.com.acmetelecom.fake;
 
 import com.acmetelecom.billingsystem.*;
-import com.acmetelecom.customer.Customer;
-import com.acmetelecom.utils.MoneyFormatter;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -16,11 +13,9 @@ import java.util.List;
  */
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
-    private BillGeneratorInterface billGenerator;
 
     public BillingSystemFake(BillGeneratorInterface billGenerator, Logger logger, Report report) {
-        super(logger, report);
-        this.billGenerator = billGenerator;
+        super(billGenerator, logger, report);
         this.times = null;
     }
 
@@ -30,7 +25,6 @@ public class BillingSystemFake extends AbstractBillingSystem {
     }
     
     public void callInitiated(String caller, String callee) {
-
         callLog.add(new CallStart(caller, callee, times.get(0)));
     }
 
@@ -38,9 +32,5 @@ public class BillingSystemFake extends AbstractBillingSystem {
         callLog.add(new CallEnd(caller, callee, times.get(1)));
     }
 
-    @Override
-    protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-    	this.billGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
-    }
 
 }
