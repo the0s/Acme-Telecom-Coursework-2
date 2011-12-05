@@ -16,6 +16,7 @@ public class Runner {
         AbstractFactory factory = FactoryMaker.getProductionFactory();
         //AbstractBillingSystem billingSystem = factory.createBillingSystem(new BillGenerator(), new CallLogger(), new BillReport());
         AbstractBillingSystem billingSystem = factory.createBillingSystem();
+
         billingSystem.callInitiated("447722113434", "447766814143");
         sleepSeconds(20);
         billingSystem.callCompleted("447722113434", "447766814143");
