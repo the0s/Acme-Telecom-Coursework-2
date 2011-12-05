@@ -1,8 +1,8 @@
 package com.acmetelecom.billingsystems;
 
-import java.util.Date;
-
 import com.acmetelecom.utils.CustomDate;
+
+import java.util.Date;
 
 public class CallEnd extends CallEvent {
     public CallEnd(String caller, String callee) {

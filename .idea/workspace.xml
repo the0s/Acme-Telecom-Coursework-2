@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/com/acmetelecom/AbstractBillingSystem.java" line="67" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="bf4a50ac-3a99-45dd-8f66-a05e1b960fe7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jmock.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/acme.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/DaytimePeakPeriod.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/Logger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/factories/AbstractFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/factories/FactoryMaker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/factories/ProductionFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/factories/TestFactory.java" />
+      <change type="DELETED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\DaytimePeakPeriod.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\test.txt" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\AbstractBillingSystem.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/AbstractBillingSystem.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\BillGenerator.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/billinggenerators/BillGenerator.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\BillGeneratorInterface.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/billinggenerators/BillGeneratorInterface.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\BillingSystem.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/BillingSystem.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\Call.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/Call.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\CallEnd.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/CallEnd.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\CallEvent.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/CallEvent.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\CallStart.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/CallStart.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\HtmlPrinter.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/printers/HtmlPrinter.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\LineItem.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/LineItem.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\MoneyFormatter.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/utils/MoneyFormatter.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\Printer.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/printers/Printer.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\utils\BillingSystemFake.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/com/acmetelecom/fake/BillingSystemFake.java" />
+      <change type="MOVED" beforePath="C:\Users\The0s\Desktop\My Dropbox\Imperial\4th year\Advanced Topics in Software engineering\Coursework2\AcmeTelecom\src\com\acmetelecom\utils\ConsolePrinter.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/printers/ConsolePrinter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/Runner.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/Runner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/CallFlowAndDuration.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/CallFlowAndDuration.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/CheckForPeakTime.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/CheckForPeakTime.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/CallTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/CallTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/DaytimePeakPeriodTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/DaytimePeakPeriodTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/LineItemTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/LineItemTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/MoneyFormatterTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/MoneyFormatterTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/com/acmetelecom/fake/BillGeneratorFake.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/com/acmetelecom/fake/BillGeneratorFake.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/utils/FilePrinter.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/utils/FilePrinter.java" />
     </list>
     <ignored path="AcmeTelecom.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,91 +153,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AbstractBillingSystem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/AbstractBillingSystem.java">
+      <file leaf-file-name="BillGeneratorInterface.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/billinggenerators/BillGeneratorInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="0" selection-start="3978" selection-end="4317" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerFind.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/CustomerFind.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="13" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BillingSystemFake.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/BillingSystemFake.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="13" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BillGeneratorUtil.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/BillGeneratorUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="22" selection-start="946" selection-end="946" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoneyFormatter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/MoneyFormatter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="13" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+            <state line="14" column="17" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="DaytimePeakPeriod.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/DaytimePeakPeriod.java">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/DaytimePeakPeriod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="31" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FilePrinter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/FilePrinter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomDate.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/CustomDate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BillingSystemTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="71" selection-start="5627" selection-end="5627" vertical-scroll-proportion="0.61504424">
+            <state line="9" column="13" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="BillGenerator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/BillGenerator.java">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/billinggenerators/BillGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="35" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+            <state line="10" column="13" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenerateBillForPeakTime.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="35" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BillGeneratorFake.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/test/com/acmetelecom/fake/BillGeneratorFake.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BillingSystem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/BillingSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="29" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractBillingSystem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/AbstractBillingSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="55" selection-start="671" selection-end="680" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CallLogger.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/loggers/CallLogger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="29" selection-start="722" selection-end="722" vertical-scroll-proportion="0.8152174">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Logger.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/Logger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="32" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CallEvent.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/CallEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="22" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -241,22 +260,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/LineItem2.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/BillGeneratorInterface.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/BillingSystem.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/BillingSystemFake.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/LineItem.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/test/DaytimePeakPeriodTest.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/ConsolePrinter.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/FilePrinter.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/CustomerFind.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/Call.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/CustomDate.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/AbstractBillingSystem.java" />
-        <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/BillGeneratorUtil.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/DaytimePeakPeriod.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/BillGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/CustomDate.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/utils/BillGeneratorUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/Printer.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/test/com/acmetelecom/fake/BillGeneratorFake.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/loggers/callLogger.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/Logger.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/AbstractBillingSystem.java" />
+        <option value="$PROJECT_DIR$/src/com/acmetelecom/billingsystems/loggers/CallLogger.java" />
       </list>
     </option>
   </component>
@@ -270,6 +289,22 @@
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Class metrics</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -277,7 +312,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -352,7 +387,7 @@
               <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
             </PATH_ELEMENT>
           </PATH>
@@ -374,7 +409,81 @@
               <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="billingsystems" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcmeTelecom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcmeTelecom" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acmetelecom" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billingsystems" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="loggers" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcmeTelecom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcmeTelecom" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acmetelecom" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billingsystems" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="billinggenerators" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcmeTelecom" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AcmeTelecom" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acmetelecom" />
+              <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acceptance" />
               <option name="myItemType" value="com.cenqua.clover.idea.projectview.PsiDirectoryNodeWrapper" />
             </PATH_ELEMENT>
           </PATH>
@@ -417,7 +526,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="ChangesBrowser.SHOW_FLATTEN" value="true" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="com.lingo.abacus.intellij.plugin.fitnesse.FitnesseWikiLanguageSupportLoader" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -443,51 +552,7 @@
       <recent name="com.acmetelecom" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BillingSystemTest">
-    <configuration default="false" name="BillingSystemTest.createAndCheckBillsForCustomersPeak" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="acme" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.acmetelecom.test" />
-      <option name="MAIN_CLASS_NAME" value="com.acmetelecom.test.BillingSystemTest" />
-      <option name="METHOD_NAME" value="createAndCheckBillsForCustomersPeak" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="BillingSystemTest.createAndCheckBillsForCustomersOffPeakToPeak" type="JUnit" factoryName="JUnit" temporary="true">
-      <module name="acme" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.acmetelecom.test" />
-      <option name="MAIN_CLASS_NAME" value="com.acmetelecom.test.BillingSystemTest" />
-      <option name="METHOD_NAME" value="createAndCheckBillsForCustomersOffPeakToPeak" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Application.Runner">
     <configuration default="false" name="BillingSystemTest.createAndCheckBillsForCustomersPeakToOffPeakToPeak" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="acme" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -552,6 +617,50 @@
       <option name="MAIN_CLASS_NAME" value="com.acmetelecom.test.BillingSystemTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Clover Optimizing Runner">
+        <option name="discardSnapshots" value="false" />
+        <option name="compilesBeforeStaleSnapshot" value="10" />
+        <option name="minimize" value="true" />
+        <option name="reorder" value="FAILFAST" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Runner" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.acmetelecom.Runner" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="acme" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="com.acmetelecom.test in acme" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="acme" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.acmetelecom.test" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -820,11 +929,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.BillingSystemTest.createAndCheckBillsForCustomersPeak" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.BillingSystemTest.createAndCheckBillsForCustomersOffPeakToPeak" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.BillingSystemTest.createAndCheckBillsForCustomersPeakToOffPeakToPeak" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.BillingSystemTest.createAndCheckBillsForCustomersPeakToOffPeak" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.BillingSystemTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.BillingSystemTest.createAndCheckBillsForCustomersPeakToOffPeakToPeak" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.BillingSystemTest.createAndCheckBillsForCustomersPeakToOffPeak" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BillingSystemTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Runner" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.com.acmetelecom.test in acme" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -892,28 +1001,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28133705" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2367688" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32611832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32467532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.7089136" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32729805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23381294" sideWeight="0.3091922" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.6713092" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24604316" sideWeight="0.6977716" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.718663" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24172662" sideWeight="0.7089136" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30222842" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29108635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Test Runs" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294964" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28133705" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -969,115 +1078,110 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/CallStart.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/Runner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+        <state line="9" column="13" selection-start="189" selection-end="189" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/CallEnd.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="105" selection-end="105" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/CallEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/acceptance/CheckForPeakTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="16" selection-start="445" selection-end="445" vertical-scroll-proportion="0.0">
+        <state line="13" column="13" selection-start="327" selection-end="327" vertical-scroll-proportion="0.1233672">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/util/Date.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/acceptance/CallFlowAndDuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="11" selection-start="6795" selection-end="6795" vertical-scroll-proportion="0.0">
+        <state line="10" column="13" selection-start="308" selection-end="308" vertical-scroll-proportion="0.09869376">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.6.0_21/src.zip!/java/util/Calendar.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/acceptance/Addition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1258" column="22" selection-start="48097" selection-end="48097" vertical-scroll-proportion="0.0">
+        <state line="5" column="13" selection-start="78" selection-end="78" vertical-scroll-proportion="0.1233672">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/Call.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/billinggenerators/BillGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="21" selection-start="607" selection-end="607" vertical-scroll-proportion="0.0">
+        <state line="10" column="13" selection-start="348" selection-end="348" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/CustomerFind.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="13" selection-start="319" selection-end="319" vertical-scroll-proportion="0.0">
+        <state line="4" column="35" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/CustomDate.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/test/com/acmetelecom/fake/BillGeneratorFake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="28" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0">
+        <state line="22" column="0" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/MoneyFormatter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/billinggenerators/BillGeneratorInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="13" selection-start="69" selection-end="69" vertical-scroll-proportion="0.0">
+        <state line="14" column="17" selection-start="341" selection-end="341" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/FilePrinter.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/CallEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
+        <state line="2" column="22" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/DaytimePeakPeriod.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="31" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0">
+        <state line="16" column="32" selection-start="329" selection-end="329" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/BillGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/DaytimePeakPeriod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="35" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+        <state line="9" column="13" selection-start="251" selection-end="251" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/BillingSystemFake.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/AbstractBillingSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0">
+        <state line="22" column="55" selection-start="671" selection-end="680" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/utils/BillGeneratorUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/BillingSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="22" selection-start="946" selection-end="946" vertical-scroll-proportion="0.0">
+        <state line="17" column="29" selection-start="551" selection-end="551" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/AbstractBillingSystem.java">
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystems/loggers/CallLogger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="0" selection-start="3978" selection-end="4317" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="71" selection-start="5627" selection-end="5627" vertical-scroll-proportion="0.61504424">
-          <folding />
+        <state line="32" column="29" selection-start="722" selection-end="722" vertical-scroll-proportion="0.8152174">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,9 +1,9 @@
 package com.acmetelecom.billingsystems;
 
+import com.acmetelecom.utils.CustomDate;
+
 import java.util.Calendar;
 import java.util.Date;
-
-import com.acmetelecom.utils.CustomDate;
 
 //TODO LOOKs Like a utility class --> should be converted into static ?
 //Todo hardcoded data to config

@@ -1,5 +1,6 @@
 package com.acmetelecom.billingsystems;
 
+import com.acmetelecom.billingsystems.loggers.CallLogger;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.CentralTariffDatabase;
 import com.acmetelecom.customer.Customer;
@@ -19,7 +20,8 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public abstract class AbstractBillingSystem {
-    protected List<CallEvent> callLog = new ArrayList<CallEvent>();
+    //protected List<CallEvent> callLog = new ArrayList<CallEvent>();
+    protected Logger callLog = new CallLogger();
 
     public abstract void callInitiated(String caller, String callee);
 
@@ -119,7 +121,7 @@ public abstract class AbstractBillingSystem {
 
     private List<CallEvent> getCustomerEvents(Customer customer) {
         List<CallEvent> customerEvents = new ArrayList<CallEvent>();
-        for (CallEvent callEvent : callLog) {
+        for (CallEvent callEvent : callLog.getEvents()) {
             if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
                 customerEvents.add(callEvent);
             }

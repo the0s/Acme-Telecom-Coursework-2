@@ -1,8 +1,5 @@
 package com.acmetelecom.acceptance;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
 import com.acmetelecom.billingsystems.BillGeneratorInterface;
 import com.acmetelecom.customer.CentralCustomerDatabase;
@@ -11,8 +8,10 @@ import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.FilePrinter;
-
 import fit.RowFixture;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenerateBillForPeakTime extends RowFixture{
 
@@ -29,6 +28,7 @@ public class GenerateBillForPeakTime extends RowFixture{
 	        this.Cost = Cost;
 	    }
     }
+
 	
 	@Override
     public Class<?> getTargetClass() {

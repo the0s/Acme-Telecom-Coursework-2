@@ -17,8 +17,10 @@ import java.util.List;
  * Time: 23:08
  * To change this template use File | Settings | File Templates.
  */
+
 public class BillGeneratorFake implements BillGeneratorInterface {
 	
+
     public void send(Customer customer, List<LineItem> calls, String totalBill) {
         Printer printer = ConsolePrinter.getInstance();
         FilePrinter filePrinter = FilePrinter.getInstance();

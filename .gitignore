@@ -1,3 +1,9 @@
 .classpath
 .project
 bin/**/*
+.idea
+.clover
+.metadata
+.settings
+AcmeTelecom.iml
+acme.iml
