@@ -22,11 +22,11 @@ public abstract class AbstractBillingSystem {
     protected Logger callLog;
     protected Report billReport;
 
-    public AbstractBillingSystem(Logger logger, Report billReport){
+    public AbstractBillingSystem(Logger logger, Report report){
         this.callLog = logger;
-        this.billReport = billReport;
+        this.billReport = report;
     }
-
+    
     public abstract void callInitiated(String caller, String callee);
 
     public abstract void callCompleted(String caller, String callee);
@@ -109,6 +109,10 @@ public abstract class AbstractBillingSystem {
 
     private int getDurationInSeconds(Date start, Date end) {
         return (int) ((end.getTime() - start.getTime()) / 1000);
+    }
+    
+    public Report getBillReport(){
+    	return this.billReport;
     }
 
 //    private List<Call> getCallsDetails(List<CallEvent> customerEvents) {

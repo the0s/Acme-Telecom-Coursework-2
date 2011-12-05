@@ -1,9 +1,6 @@
 package com.acmetelecom;
 
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
-import com.acmetelecom.billingsystems.billinggenerators.BillGenerator;
-import com.acmetelecom.billingsystems.loggers.CallLogger;
-import com.acmetelecom.billingsystems.reports.BillReport;
 
 
 /**
@@ -17,7 +14,8 @@ public class Runner {
     public static void main(String[] args) throws Exception {
         System.out.println("Running...");
         AbstractFactory factory = FactoryMaker.getProductionFactory();
-        AbstractBillingSystem billingSystem = factory.createBillingSystem(new BillGenerator(), new CallLogger(), new BillReport());
+        //AbstractBillingSystem billingSystem = factory.createBillingSystem(new BillGenerator(), new CallLogger(), new BillReport());
+        AbstractBillingSystem billingSystem = factory.createBillingSystem();
         billingSystem.callInitiated("447722113434", "447766814143");
         sleepSeconds(20);
         billingSystem.callCompleted("447722113434", "447766814143");
