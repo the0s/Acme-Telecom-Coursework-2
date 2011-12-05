@@ -1,6 +1,7 @@
 package com.acmetelecom.test;
 
-import com.acmetelecom.MoneyFormatter;
+import com.acmetelecom.utils.MoneyFormatter;
+
 import org.junit.Test;
 
 import java.math.BigDecimal;

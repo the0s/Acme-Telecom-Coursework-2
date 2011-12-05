@@ -1,5 +1,9 @@
 package com.acmetelecom;
 
+import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.factories.AbstractFactory;
+import com.acmetelecom.factories.FactoryMaker;
+
 /**
  * Created by IntelliJ IDEA.
  * User: The0s
@@ -10,7 +14,8 @@ package com.acmetelecom;
 public class Runner {
     public static void main(String[] args) throws Exception {
         System.out.println("Running...");
-        AbstractBillingSystem billingSystem = new BillingSystem();
+        AbstractFactory factory = FactoryMaker.getProductionFactory();
+        AbstractBillingSystem billingSystem = factory.createBillingSystem();
         billingSystem.callInitiated("447722113434", "447766814143");
         sleepSeconds(20);
         billingSystem.callCompleted("447722113434", "447766814143");
