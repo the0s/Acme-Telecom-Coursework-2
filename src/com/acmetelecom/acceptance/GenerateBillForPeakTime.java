@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.billingsystems.BillGeneratorInterface;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
+import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.FilePrinter;
@@ -40,7 +42,8 @@ public class GenerateBillForPeakTime extends RowFixture{
         List<Long> times = new ArrayList<Long>();
         times.add(startDate.getDate().getTime());
         times.add(endDate.getDate().getTime());
-        AbstractBillingSystem billingSystem = new BillingSystemFake();
+        BillGeneratorInterface billGenerator = new BillGeneratorFake();
+        AbstractBillingSystem billingSystem = new BillingSystemFake(billGenerator);
         ((BillingSystemFake) billingSystem).setTimes(times);
 		
         billingSystem.callInitiated("447711232343", "callee");

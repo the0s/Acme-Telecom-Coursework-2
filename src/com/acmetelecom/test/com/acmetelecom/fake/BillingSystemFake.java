@@ -1,6 +1,7 @@
 package com.acmetelecom.test.com.acmetelecom.fake;
 
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.billingsystems.BillGeneratorInterface;
 import com.acmetelecom.billingsystems.CallEnd;
 import com.acmetelecom.billingsystems.CallStart;
 import com.acmetelecom.billingsystems.LineItem;
@@ -19,9 +20,10 @@ import java.util.List;
  */
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
-    
-    public BillingSystemFake() {
+    private BillGeneratorInterface billGenerator;
+    public BillingSystemFake(BillGeneratorInterface billGenerator) {
         super();
+        this.billGenerator = billGenerator;
         this.times = null;
     }
 

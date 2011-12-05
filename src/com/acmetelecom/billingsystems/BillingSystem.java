@@ -8,7 +8,13 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class BillingSystem extends AbstractBillingSystem {
-
+	
+	private BillGeneratorInterface billingGenerator = null;
+	
+	public BillingSystem(BillGeneratorInterface billingGenerator){
+		this.billingGenerator = billingGenerator;
+	}
+	
     public void callInitiated(String caller, String callee) {
         callLog.add(new CallStart(caller, callee));
     }
@@ -19,7 +25,6 @@ public class BillingSystem extends AbstractBillingSystem {
 
     @Override
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-        
-    	new BillGenerator().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
+    	this.billingGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 }
