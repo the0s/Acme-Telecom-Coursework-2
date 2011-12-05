@@ -1,7 +1,6 @@
 package com.acmetelecom.billingsystems;
 
-import com.acmetelecom.billingsystems.billinggenerators.BillGeneratorFactory;
-import com.acmetelecom.billingsystems.billinggenerators.BillGeneratorInterface;
+import com.acmetelecom.billingsystems.billinggenerators.BillGenerator;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.utils.MoneyFormatter;
 
@@ -20,7 +19,7 @@ public class BillingSystem extends AbstractBillingSystem {
 
     @Override
     protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-        BillGeneratorInterface billGenerator = BillGeneratorFactory.createBillGenerator();
-    	billGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
+        
+    	new BillGenerator().send(customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 }
