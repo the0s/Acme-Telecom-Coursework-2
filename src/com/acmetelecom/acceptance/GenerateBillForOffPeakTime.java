@@ -1,12 +1,8 @@
 package com.acmetelecom.acceptance;
 
-import com.acmetelecom.AbstractFactory;
-import com.acmetelecom.FactoryMaker;
-import com.acmetelecom.billingsystem.AbstractBillingSystem;
 import com.acmetelecom.billingsystem.Report;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
-import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.MoneyFormatter;
 import fit.RowFixture;
@@ -14,7 +10,7 @@ import fit.RowFixture;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenerateBillForPeakTime extends RowFixture{
+public class GenerateBillForOffPeakTime extends RowFixture{
 
     public static class Row {
     	public String Caller;
@@ -28,7 +24,6 @@ public class GenerateBillForPeakTime extends RowFixture{
 	    }
     }
 
-	
 	@Override
     public Class<?> getTargetClass() {
         return Row.class;
@@ -36,12 +31,10 @@ public class GenerateBillForPeakTime extends RowFixture{
 
 	@Override
     public Object[] query() throws Exception {		
-		
         //Set the start and end times
-		CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
-        CustomDate endDate = new CustomDate(2011, 11, 11, 14, 20, 00);
+		CustomDate startDate = new CustomDate(2011, 11, 11, 21, 00, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 21, 20, 00);
         SystemUnderTest.setTimes(startDate, endDate);
-        
         List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
         for (Customer customer : customers) {
         	SystemUnderTest.billingSystem.callInitiated(customer.getPhoneNumber(), "callee");

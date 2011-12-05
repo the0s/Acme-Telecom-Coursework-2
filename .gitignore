@@ -5,5 +5,4 @@ bin/**/*
 .clover
 .metadata
 .settings
-AcmeTelecom.iml
 acme.iml
