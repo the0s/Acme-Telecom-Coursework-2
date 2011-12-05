@@ -1,17 +1,18 @@
 package com.acmetelecom.acceptance;
 
+import com.acmetelecom.AbstractFactory;
+import com.acmetelecom.FactoryMaker;
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
-
-import com.acmetelecom.billingsystems.loggers.CallLogger;
-import com.acmetelecom.billingsystems.reports.BillReport;
+import com.acmetelecom.billingsystems.Report;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
-import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 import com.acmetelecom.utils.CustomDate;
-import com.acmetelecom.utils.FilePrinter;
+import com.acmetelecom.utils.MoneyFormatter;
+
 import fit.RowFixture;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,26 +40,28 @@ public class GenerateBillForPeakTime extends RowFixture{
 
 	@Override
     public Object[] query() throws Exception {		
+		
+		AbstractFactory factory = FactoryMaker.getTestFactory();
+        AbstractBillingSystem billingSystem = factory.createBillingSystem();
+		
+        //Set the start and end times
 		CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 14, 20, 00);
         List<Long> times = new ArrayList<Long>();
         times.add(startDate.getDate().getTime());
         times.add(endDate.getDate().getTime());
-
-        AbstractBillingSystem billingSystem = new BillingSystemFake(new BillGeneratorFake(),new CallLogger(), new BillReport());
-
         ((BillingSystemFake) billingSystem).setTimes(times);
 		
         billingSystem.callInitiated("447711232343", "callee");
         billingSystem.callCompleted("447711232343", "callee");
         billingSystem.createCustomerBills();
-        List<Row> rows = new ArrayList<Row>();
         
+        List<Row> rows = new ArrayList<Row>();
+        Report report = billingSystem.getBillReport();
         List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
         int lineCount = 0;
         for (Customer customer : customers) {
-        	String totalBill = FilePrinter.getInstance().readFile(customer.getPhoneNumber());
-        	totalBill = (totalBill != null) ? totalBill : "0";
+        	String totalBill = MoneyFormatter.penceToPounds(report.getTotalBillOf(customer));
         	Row row = new Row(customer.getPhoneNumber(), "11/11/2011 14:00:00", "11/11/2011 14:20:00", totalBill);
         	rows.add(lineCount, row);
         	lineCount++;

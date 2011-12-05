@@ -42,13 +42,11 @@ public class BillingSystemTest {
     public void init() {
     	AbstractFactory factory = FactoryMaker.getTestFactory();
         this.billingSystem = factory.createBillingSystem();
-
         this.caller = "447711232343";
         this.callee = "447766814143";
         this.customer = CustomerFind.getCustomerFromNumber(this.caller);
         this.tariff = CentralTariffDatabase.getInstance().tarriffFor(this.customer);
     }
-
 
     @Test
     public void createAndCheckBillsForCustomersPeak() {
