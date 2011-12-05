@@ -1,8 +1,6 @@
 package com.acmetelecom;
 
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
-import com.acmetelecom.factories.AbstractFactory;
-import com.acmetelecom.factories.FactoryMaker;
 
 /**
  * Created by IntelliJ IDEA.
