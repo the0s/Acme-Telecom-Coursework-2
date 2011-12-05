@@ -1,17 +1,12 @@
 package com.acmetelecom.acceptance;
 
+import com.acmetelecom.*;
+import com.acmetelecom.utils.BillingSystemFake;
+import fit.ActionFixture;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.acmetelecom.AbstractBillingSystem;
-import com.acmetelecom.Call;
-import com.acmetelecom.CallEnd;
-import com.acmetelecom.CallEvent;
-import com.acmetelecom.CallStart;
-import com.acmetelecom.utils.BillingSystemFake;
-
-import fit.ActionFixture;
 
 public class GenerateBillForPeakTime extends ActionFixture{
 	private Call call;
