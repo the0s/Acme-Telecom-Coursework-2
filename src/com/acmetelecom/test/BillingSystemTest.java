@@ -1,10 +1,18 @@
 package com.acmetelecom.test;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import com.acmetelecom.AbstractFactory;
 import com.acmetelecom.FactoryMaker;
 import com.acmetelecom.billingsystems.AbstractBillingSystem;
-import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.CentralTariffDatabase;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.customer.Tariff;
@@ -13,16 +21,6 @@ import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.CustomerFind;
 import com.acmetelecom.utils.FilePrinter;
 import com.acmetelecom.utils.MoneyFormatter;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
 
 /**
  * Created by IntelliJ IDEA.
@@ -41,7 +39,7 @@ public class BillingSystemTest {
     @Before
     public void init() {
     	AbstractFactory factory = FactoryMaker.getTestFactory();
-        this.billingSystem = factory.createBillingSystem();
+    	this.billingSystem = factory.createBillingSystem();
         this.caller = "447711232343";
         this.callee = "447766814143";
         this.customer = CustomerFind.getCustomerFromNumber(this.caller);
