@@ -12,8 +12,8 @@ import org.junit.Test;
 
 import com.acmetelecom.AbstractFactory;
 import com.acmetelecom.FactoryMaker;
-import com.acmetelecom.billingsystems.AbstractBillingSystem;
-import com.acmetelecom.billingsystems.Logger;
+import com.acmetelecom.billingsystem.AbstractBillingSystem;
+import com.acmetelecom.billingsystem.Logger;
 import com.acmetelecom.customer.CentralTariffDatabase;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.customer.Tariff;

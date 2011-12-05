@@ -1,6 +1,6 @@
 package com.acmetelecom;
 
-import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.billingsystem.AbstractBillingSystem;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.acmetelecom.billingsystems;
+package com.acmetelecom.billingsystem;
 
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.CentralTariffDatabase;
@@ -36,7 +36,7 @@ public abstract class AbstractBillingSystem {
         for (Customer customer : customers) {
             createBillFor(customer);
         }
-        callLog.clear();       //TODO giati clear?
+        callLog.clear();
     }
 
     private void createBillFor(Customer customer) {
@@ -56,7 +56,7 @@ public abstract class AbstractBillingSystem {
             //items.add(new LineItem(call, callCost));
             billReport.add(new LineItem(call, callCost));
         }
-        //billReport.clear(); TODO clearing should be done!!!!!
+        //billReport.clear(); //TODO clearing should be done!!!!!
 
         billReport.addCustomerBill(customer,totalBill);
 

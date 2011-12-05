@@ -1,9 +1,9 @@
 package com.acmetelecom;
 
-import com.acmetelecom.billingsystems.*;
-import com.acmetelecom.billingsystems.billinggenerators.BillGenerator;
-import com.acmetelecom.billingsystems.loggers.CallLogger;
-import com.acmetelecom.billingsystems.reports.BillReport;
+import com.acmetelecom.billingsystem.*;
+import com.acmetelecom.billingsystem.billinggenerators.BillGenerator;
+import com.acmetelecom.billingsystem.loggers.CallLogger;
+import com.acmetelecom.billingsystem.reports.BillReport;
 
 public class ProductionFactory extends AbstractFactory {
 	

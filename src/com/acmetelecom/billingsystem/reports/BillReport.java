@@ -1,7 +1,7 @@
-package com.acmetelecom.billingsystems.reports;
+package com.acmetelecom.billingsystem.reports;
 
-import com.acmetelecom.billingsystems.LineItem;
-import com.acmetelecom.billingsystems.Report;
+import com.acmetelecom.billingsystem.LineItem;
+import com.acmetelecom.billingsystem.Report;
 import com.acmetelecom.customer.Customer;
 
 import java.math.BigDecimal;

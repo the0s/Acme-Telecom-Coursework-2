@@ -1,9 +1,9 @@
 package com.acmetelecom.test.com.acmetelecom.fake;
 
-import com.acmetelecom.billingsystems.BillGeneratorInterface;
-import com.acmetelecom.billingsystems.LineItem;
-import com.acmetelecom.billingsystems.printers.ConsolePrinter;
-import com.acmetelecom.billingsystems.printers.Printer;
+import com.acmetelecom.billingsystem.Printer;
+import com.acmetelecom.billingsystem.BillGeneratorInterface;
+import com.acmetelecom.billingsystem.LineItem;
+import com.acmetelecom.billingsystem.printers.ConsolePrinter;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.utils.FilePrinter;
 import com.acmetelecom.utils.MoneyFormatter;

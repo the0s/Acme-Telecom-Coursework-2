@@ -3,7 +3,7 @@ package com.acmetelecom.acceptance;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.acmetelecom.billingsystems.DaytimePeakPeriod;
+import com.acmetelecom.billingsystem.DaytimePeakPeriod;
 import fit.ColumnFixture;
 
 public class CheckForPeakTime extends ColumnFixture{

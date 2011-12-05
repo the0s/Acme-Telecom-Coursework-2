@@ -1,6 +1,6 @@
 package com.acmetelecom.test.com.acmetelecom.fake;
 
-import com.acmetelecom.billingsystems.*;
+import com.acmetelecom.billingsystem.*;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.utils.MoneyFormatter;
 

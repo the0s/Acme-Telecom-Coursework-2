@@ -1,9 +1,9 @@
 package com.acmetelecom.acceptance;
 
-import com.acmetelecom.billingsystems.Call;
-import com.acmetelecom.billingsystems.CallEnd;
-import com.acmetelecom.billingsystems.CallEvent;
-import com.acmetelecom.billingsystems.CallStart;
+import com.acmetelecom.billingsystem.Call;
+import com.acmetelecom.billingsystem.CallEnd;
+import com.acmetelecom.billingsystem.CallEvent;
+import com.acmetelecom.billingsystem.CallStart;
 
 import fit.ActionFixture;
 

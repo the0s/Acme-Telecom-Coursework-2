@@ -1,7 +1,7 @@
 package com.acmetelecom.test;
 
 
-import com.acmetelecom.billingsystems.DaytimePeakPeriod;
+import com.acmetelecom.billingsystem.DaytimePeakPeriod;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,5 +1,7 @@
-package com.acmetelecom.billingsystems.printers;
+package com.acmetelecom.billingsystem.printers;
 
+
+import com.acmetelecom.billingsystem.Printer;
 
 /**
  * Created by IntelliJ IDEA.

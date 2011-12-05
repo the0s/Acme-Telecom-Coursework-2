@@ -1,9 +1,9 @@
 package com.acmetelecom.acceptance;
 
-import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.billingsystem.AbstractBillingSystem;
 
-import com.acmetelecom.billingsystems.loggers.CallLogger;
-import com.acmetelecom.billingsystems.reports.BillReport;
+import com.acmetelecom.billingsystem.loggers.CallLogger;
+import com.acmetelecom.billingsystem.reports.BillReport;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
 import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;

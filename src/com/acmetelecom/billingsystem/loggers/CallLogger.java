@@ -1,6 +1,6 @@
-package com.acmetelecom.billingsystems.loggers;
+package com.acmetelecom.billingsystem.loggers;
 
-import com.acmetelecom.billingsystems.*;
+import com.acmetelecom.billingsystem.*;
 import com.acmetelecom.customer.Customer;
 
 import java.util.ArrayList;

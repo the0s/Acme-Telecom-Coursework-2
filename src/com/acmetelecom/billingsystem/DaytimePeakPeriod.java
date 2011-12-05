@@ -1,4 +1,4 @@
-package com.acmetelecom.billingsystems;
+package com.acmetelecom.billingsystem;
 
 import com.acmetelecom.utils.CustomDate;
 
