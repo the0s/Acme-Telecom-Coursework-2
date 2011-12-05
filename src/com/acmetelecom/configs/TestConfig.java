@@ -16,7 +16,7 @@ import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
  * Time: 21:20
  * To change this template use File | Settings | File Templates.
  */
-public class TestConfig {
+public class TestConfig {//TODO ADD PRINTER
     private final static BillGeneratorInterface billGenerator = new BillGeneratorFake();
 	private final static Logger logger = new CallLogger();
 	private final static Report report = new BillReport();
