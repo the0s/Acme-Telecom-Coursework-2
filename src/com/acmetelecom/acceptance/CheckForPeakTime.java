@@ -10,7 +10,7 @@ public class CheckForPeakTime extends ColumnFixture{
 	
 	public String Time;
 	private DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
-	private SimpleDateFormat dfm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");;
+	private SimpleDateFormat dfm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 	
 	public Boolean isOffPeak() throws ParseException{
 		Date date = dfm.parse(Time);

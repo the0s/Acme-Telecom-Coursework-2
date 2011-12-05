@@ -45,6 +45,14 @@ public class BillReport implements Report {
     public BigDecimal getTotalBillOf(Customer customer) {
         return this.customerBills.get(customer.getPhoneNumber());
     }
+    
+    public List<LineItem> getCallsOf(String customer){
+    	List<LineItem> callsOf = new ArrayList<LineItem>();
+    	for (LineItem call : calls){
+    		callsOf.add(call);
+    	}
+    	return callsOf;
+    }
 
 
 }

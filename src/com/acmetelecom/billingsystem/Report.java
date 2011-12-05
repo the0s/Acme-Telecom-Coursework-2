@@ -21,4 +21,5 @@ public interface Report {
     void clearCalls();
     void addCustomerBill(Customer customer, BigDecimal totalBill);
     public BigDecimal getTotalBillOf(Customer customer);
+    public List<LineItem> getCallsOf(String customer);
 }
