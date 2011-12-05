@@ -1,7 +1,7 @@
 package com.acmetelecom.factories;
 
-import com.acmetelecom.AbstractBillingSystem;
-import com.acmetelecom.BillingSystem;
+import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.billingsystems.BillingSystem;
 
 public class ProductionFactory extends AbstractFactory {
 	

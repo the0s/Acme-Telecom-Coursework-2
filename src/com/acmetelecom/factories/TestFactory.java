@@ -1,7 +1,7 @@
 package com.acmetelecom.factories;
 
-import com.acmetelecom.AbstractBillingSystem;
-import com.acmetelecom.utils.BillingSystemFake;
+import com.acmetelecom.billingsystems.AbstractBillingSystem;
+import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 
 public class TestFactory extends AbstractFactory {
 	

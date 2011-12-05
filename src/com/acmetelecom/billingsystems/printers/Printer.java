@@ -1,4 +1,4 @@
-package com.acmetelecom;
+package com.acmetelecom.billingsystems.printers;
 
 public interface Printer {
 

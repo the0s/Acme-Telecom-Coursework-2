@@ -1,11 +1,12 @@
-package com.acmetelecom.utils;
+package com.acmetelecom.test.com.acmetelecom.fake;
 
-import com.acmetelecom.BillGeneratorInterface;
-import com.acmetelecom.LineItem;
-import com.acmetelecom.MoneyFormatter;
-import com.acmetelecom.Printer;
-import com.acmetelecom.PrinterFactory;
+import com.acmetelecom.billingsystems.LineItem;
+import com.acmetelecom.billingsystems.billinggenerators.BillGeneratorInterface;
+import com.acmetelecom.billingsystems.printers.ConsolePrinter;
+import com.acmetelecom.billingsystems.printers.Printer;
 import com.acmetelecom.customer.Customer;
+import com.acmetelecom.utils.FilePrinter;
+import com.acmetelecom.utils.MoneyFormatter;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class BillGeneratorFake implements BillGeneratorInterface {
 	
     public void send(Customer customer, List<LineItem> calls, String totalBill) {
-        Printer printer = PrinterFactory.createConsolePrinter();
+        Printer printer = ConsolePrinter.getInstance();
         FilePrinter filePrinter = FilePrinter.getInstance();
         printer.printHeading(customer.getFullName(), customer.getPhoneNumber(), customer.getPricePlan());
         for (LineItem call : calls) {

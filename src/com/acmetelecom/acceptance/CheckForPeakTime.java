@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.acmetelecom.DaytimePeakPeriod;
+import com.acmetelecom.billingsystems.DaytimePeakPeriod;
 import com.acmetelecom.utils.CustomDate;
 
 import fit.ColumnFixture;

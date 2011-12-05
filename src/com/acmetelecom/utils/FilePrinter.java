@@ -21,7 +21,8 @@ public class FilePrinter {
 
     static {
         try {
-            instance = new FilePrinter();
+        	instance = new FilePrinter();
+            
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }

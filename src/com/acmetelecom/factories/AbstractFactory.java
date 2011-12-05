@@ -1,6 +1,6 @@
 package com.acmetelecom.factories;
 
-import com.acmetelecom.AbstractBillingSystem;
+import com.acmetelecom.billingsystems.AbstractBillingSystem;
 
 public abstract class AbstractFactory {
 	

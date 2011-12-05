@@ -3,12 +3,11 @@ package com.acmetelecom.acceptance;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.acmetelecom.AbstractBillingSystem;
-import com.acmetelecom.BillingSystem;
-import com.acmetelecom.BillingSystemFIT;
+import com.acmetelecom.billingsystems.AbstractBillingSystem;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
-import com.acmetelecom.utils.BillingSystemFake;
+import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
+import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.FilePrinter;
 
 import fit.RowFixture;
@@ -36,7 +35,14 @@ public class GenerateBillForPeakTime extends RowFixture{
 
 	@Override
     public Object[] query() throws Exception {		
-        AbstractBillingSystem billingSystem = new BillingSystemFIT();
+		CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
+        CustomDate endDate = new CustomDate(2011, 11, 11, 14, 20, 00);
+        List<Long> times = new ArrayList<Long>();
+        times.add(startDate.getDate().getTime());
+        times.add(endDate.getDate().getTime());
+        AbstractBillingSystem billingSystem = new BillingSystemFake();
+        ((BillingSystemFake) billingSystem).setTimes(times);
+		
         billingSystem.callInitiated("447711232343", "callee");
         billingSystem.callCompleted("447711232343", "callee");
         billingSystem.createCustomerBills();
@@ -46,7 +52,7 @@ public class GenerateBillForPeakTime extends RowFixture{
         int lineCount = 0;
         for (Customer customer : customers) {
         	String totalBill = FilePrinter.getInstance().readFile(customer.getPhoneNumber());
-        	totalBill = (totalBill != null) ? "0" : "0";
+        	totalBill = (totalBill != null) ? totalBill : "0";
         	Row row = new Row(customer.getPhoneNumber(), "11/11/2011 14:00:00", "11/11/2011 14:20:00", totalBill);
         	rows.add(lineCount, row);
         	lineCount++;

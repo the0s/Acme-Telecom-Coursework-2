@@ -1,5 +1,6 @@
-package com.acmetelecom;
+package com.acmetelecom.billingsystems.billinggenerators;
 
+import com.acmetelecom.billingsystems.LineItem;
 import com.acmetelecom.customer.Customer;
 
 import java.util.List;

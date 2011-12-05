@@ -1,6 +1,6 @@
-package com.acmetelecom;
+package com.acmetelecom.billingsystems.billinggenerators;
 
-import com.acmetelecom.utils.BillGeneratorFake;
+import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 
 public class BillGeneratorFactory {
 	
@@ -13,3 +13,4 @@ public class BillGeneratorFactory {
 	}
 	
 }
+

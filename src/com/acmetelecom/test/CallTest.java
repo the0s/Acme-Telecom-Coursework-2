@@ -1,8 +1,8 @@
 package com.acmetelecom.test;
 
-import com.acmetelecom.Call;
-import com.acmetelecom.CallEnd;
-import com.acmetelecom.CallStart;
+import com.acmetelecom.billingsystems.Call;
+import com.acmetelecom.billingsystems.CallEnd;
+import com.acmetelecom.billingsystems.CallStart;
 import com.acmetelecom.utils.CustomDate;
 
 import org.junit.Before;
