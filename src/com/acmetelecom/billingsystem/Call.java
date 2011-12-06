@@ -12,6 +12,10 @@ public class Call {
         this.end = end;
     }
 
+    public String caller() {
+        return start.getCaller();
+    }
+    
     public String callee() {
         return start.getCallee();
     }

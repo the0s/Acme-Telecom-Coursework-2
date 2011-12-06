@@ -1,16 +1,18 @@
 package com.acmetelecom.test;
 
 import com.acmetelecom.AbstractFactory;
+import com.acmetelecom.AcmeCustomerDatabase;
+import com.acmetelecom.AcmeTariffDatabase;
 import com.acmetelecom.FactoryMaker;
 import com.acmetelecom.billingsystem.AbstractBillingSystem;
 import com.acmetelecom.billingsystem.Logger;
-import com.acmetelecom.customer.CentralTariffDatabase;
-import com.acmetelecom.customer.Customer;
-import com.acmetelecom.customer.Tariff;
+import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
+import com.acmetelecom.billingsystem.customers.CustomerFind;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
+import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
+import com.acmetelecom.billingsystem.utils.CustomDate;
+import com.acmetelecom.billingsystem.utils.MoneyFormatter;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
-import com.acmetelecom.utils.CustomDate;
-import com.acmetelecom.utils.CustomerFind;
-import com.acmetelecom.utils.MoneyFormatter;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,10 +34,11 @@ import static org.junit.Assert.assertThat;
 public class BillingSystemTest {
 
     String caller, callee;
-    Customer customer;
-    Tariff tariff;
+    CustomerInterface customer;
     AbstractBillingSystem billingSystem;
     Logger callLogger;
+    CustomerDatabaseInterface customerDatabase = new AcmeCustomerDatabase();
+    TariffDatabaseInterface tariffDatabase = new AcmeTariffDatabase();
 
     @Before
     public void init() {
@@ -43,8 +46,8 @@ public class BillingSystemTest {
         this.billingSystem = factory.createBillingSystem();
         this.caller = "447711232343";
         this.callee = "447766814143";
-        this.customer = CustomerFind.getCustomerFromNumber(this.caller);
-        this.tariff = CentralTariffDatabase.getInstance().tarriffFor(this.customer);
+        this.customer = CustomerFind.getCustomerFromNumber(customerDatabase, this.caller);
+        //this.tariff = CentralTariffDatabase.getInstance().tarriffFor(this.customer);
     }
 
     @Test
@@ -218,8 +221,8 @@ public class BillingSystemTest {
 
     private BigDecimal getCalculatedCost(int offPeakDuration, int peakDuration) {
         BigDecimal costOffPeak, costPeak;
-        costOffPeak = new BigDecimal(offPeakDuration).multiply(tariff.offPeakRate());
-        costPeak = new BigDecimal(peakDuration).multiply(tariff.peakRate());
+        costOffPeak = new BigDecimal(offPeakDuration).multiply(tariffDatabase.getOffPeakRateFor(customer));
+        costPeak = new BigDecimal(peakDuration).multiply(tariffDatabase.getPeakRateFor(customer));
         return costOffPeak.add(costPeak);
     }
 

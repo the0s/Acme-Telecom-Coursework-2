@@ -1,6 +1,6 @@
 package com.acmetelecom.billingsystem;
 
-import com.acmetelecom.customer.Customer;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public interface BillGeneratorInterface {
-    void send(Customer customer, List<LineItem> calls, String totalBill);
+    void send(Printer printerInstance, CustomerInterface customer, List<LineItem> calls, String totalBill);
 }

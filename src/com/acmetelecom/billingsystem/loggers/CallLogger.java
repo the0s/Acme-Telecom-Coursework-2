@@ -1,7 +1,7 @@
 package com.acmetelecom.billingsystem.loggers;
 
 import com.acmetelecom.billingsystem.*;
-import com.acmetelecom.customer.Customer;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class CallLogger implements Logger{
         this.callLog.add(callEvent);
     }
 
-    private List<CallEvent> getCustomerEvents(Customer customer) {
+    private List<CallEvent> getCustomerEvents(CustomerInterface customer) {
         List<CallEvent> customerEvents = new ArrayList<CallEvent>();
         for (CallEvent callEvent : this.getEvents()) {
             if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
@@ -38,7 +38,7 @@ public class CallLogger implements Logger{
         return customerEvents;
     }
 
-    public List<Call> getCallsDetailsOf(Customer customer) {
+    public List<Call> getCallsDetailsOf(CustomerInterface customer) {
         List<CallEvent> customerEvents = this.getCustomerEvents(customer);
         List<Call> calls = new ArrayList<Call>();
         CallEvent start = null;

@@ -1,10 +1,18 @@
 package com.acmetelecom.billingsystem;
 
+import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
+import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
+
 public class BillingSystem extends AbstractBillingSystem {
 
 
-    public BillingSystem(BillGeneratorInterface billingGenerator,Logger logger, Report report) {
-        super(billingGenerator, logger, report);
+    public BillingSystem(BillGeneratorInterface billingGenerator,
+    		Logger logger, 
+    		Report report, 
+    		CustomerDatabaseInterface customerDatabase, 
+    		TariffDatabaseInterface tariffDatabase, 
+    		Printer printer) {
+        super(billingGenerator, logger, report, customerDatabase, tariffDatabase, printer);
     }
 
     public void callInitiated(String caller, String callee) {

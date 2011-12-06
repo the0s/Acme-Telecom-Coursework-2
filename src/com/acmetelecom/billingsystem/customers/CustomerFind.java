@@ -1,7 +1,4 @@
-package com.acmetelecom.utils;
-
-import com.acmetelecom.customer.CentralCustomerDatabase;
-import com.acmetelecom.customer.Customer;
+package com.acmetelecom.billingsystem.customers;
 
 import java.util.List;
 
@@ -14,9 +11,9 @@ import java.util.List;
  */
 public class CustomerFind {
 
-    public static Customer getCustomerFromNumber(String number) {
-        final List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
-        for (Customer customer : customers) {
+    public static CustomerInterface getCustomerFromNumber(CustomerDatabaseInterface db, String number) {
+        final List<CustomerInterface> customers = db.getCustomers();
+        for (CustomerInterface customer : customers) {
             if (customer.getPhoneNumber().equals(number)) {
                 return customer;
             }

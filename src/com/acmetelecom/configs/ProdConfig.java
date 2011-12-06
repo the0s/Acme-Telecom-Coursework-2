@@ -1,8 +1,13 @@
 package com.acmetelecom.configs;
 
+import com.acmetelecom.AcmeCustomerDatabase;
+import com.acmetelecom.AcmeTariffDatabase;
 import com.acmetelecom.billingsystem.*;
 import com.acmetelecom.billingsystem.billinggenerators.BillGenerator;
+import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
+import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
 import com.acmetelecom.billingsystem.loggers.CallLogger;
+import com.acmetelecom.billingsystem.printers.HtmlPrinter;
 import com.acmetelecom.billingsystem.reports.BillReport;
 
 /**
@@ -16,5 +21,13 @@ public class ProdConfig { //TODO ADD PRINTER
    private final static BillGeneratorInterface billGenerator = new BillGenerator();
    private final static Logger logger = new CallLogger();
    private final static Report report = new BillReport();
-   public final static AbstractBillingSystem billingSystem = new BillingSystem(billGenerator,logger,report);
+   private final static CustomerDatabaseInterface customerDatabase = new AcmeCustomerDatabase();
+   private final static TariffDatabaseInterface tariffDatabase = new AcmeTariffDatabase();
+   private final static Printer printer = HtmlPrinter.getInstance();
+   public final static AbstractBillingSystem billingSystem = new BillingSystem(billGenerator,
+		   																       logger,
+		   																       report, 
+		   																       customerDatabase, 
+		   																       tariffDatabase, 
+		   																       printer);
 }

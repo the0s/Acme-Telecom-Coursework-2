@@ -1,6 +1,8 @@
 package com.acmetelecom.test.com.acmetelecom.fake;
 
 import com.acmetelecom.billingsystem.*;
+import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
+import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
 
 import java.util.List;
 
@@ -14,8 +16,13 @@ import java.util.List;
 public class BillingSystemFake extends AbstractBillingSystem {
     private List<Long> times;
 
-    public BillingSystemFake(BillGeneratorInterface billGenerator, Logger logger, Report report) {
-        super(billGenerator, logger, report);
+    public BillingSystemFake(BillGeneratorInterface billGenerator, 
+    		                 Logger logger, 
+    		                 Report report, 
+    		                 CustomerDatabaseInterface customerDatabase, 
+    		                 TariffDatabaseInterface tariffDatabase,
+    		                 Printer printer) {
+        super(billGenerator, logger, report, customerDatabase, tariffDatabase, printer);
         this.times = null;
     }
 

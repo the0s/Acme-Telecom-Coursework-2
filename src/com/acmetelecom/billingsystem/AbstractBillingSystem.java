@@ -1,10 +1,9 @@
 package com.acmetelecom.billingsystem;
 
-import com.acmetelecom.customer.CentralCustomerDatabase;
-import com.acmetelecom.customer.CentralTariffDatabase;
-import com.acmetelecom.customer.Customer;
-import com.acmetelecom.customer.Tariff;
-import com.acmetelecom.utils.MoneyFormatter;
+import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
+import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
+import com.acmetelecom.billingsystem.utils.MoneyFormatter;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -22,11 +21,22 @@ public abstract class AbstractBillingSystem {
     protected Logger callLog;
     protected Report billReport;
     private BillGeneratorInterface billingGenerator;
+    private CustomerDatabaseInterface customerDatabase;
+    private TariffDatabaseInterface tariffDatabase;
+    private Printer printer;
 
-    public AbstractBillingSystem(BillGeneratorInterface billingGenerator, Logger logger, Report report){
+    public AbstractBillingSystem(BillGeneratorInterface billingGenerator, 
+    							 Logger logger, 
+    							 Report report, 
+    							 CustomerDatabaseInterface customerDatabase, 
+    							 TariffDatabaseInterface tariffDatabase, 
+    							 Printer printer){
         this.callLog = logger;
         this.billReport = report;
         this.billingGenerator = billingGenerator;
+        this.customerDatabase = customerDatabase;
+        this.tariffDatabase = tariffDatabase;
+        this.printer = printer;
     }
     
     public abstract void callInitiated(String caller, String callee);
@@ -34,14 +44,14 @@ public abstract class AbstractBillingSystem {
     public abstract void callCompleted(String caller, String callee);
 
     public void createCustomerBills() {
-        List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
-        for (Customer customer : customers) {
+        List<CustomerInterface> customers = customerDatabase.getCustomers(); //CentralCustomerDatabase.getInstance().getCustomers();
+        for (CustomerInterface customer : customers) {
             createBillFor(customer);
         }
         callLog.clear();
     }
 
-    private void createBillFor(Customer customer) {
+    private void createBillFor(CustomerInterface customer) {
         List<Call> calls = callLog.getCallsDetailsOf(customer);
         BigDecimal totalBill = new BigDecimal(0);
 
@@ -57,8 +67,7 @@ public abstract class AbstractBillingSystem {
         billReport.clearCalls();
     }
 
-    private BigDecimal calculateCallCost(Customer customer, Call call) {
-        Tariff tariff = CentralTariffDatabase.getInstance().tarriffFor(customer);
+    private BigDecimal calculateCallCost(CustomerInterface customer, Call call) {
         BigDecimal cost = new BigDecimal(0);
 
         DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
@@ -69,31 +78,31 @@ public abstract class AbstractBillingSystem {
                                  ? 0
                                  : halfDayInSeconds;
                 int offPeakDuration = call.durationSeconds() - peakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
+                cost = getCost(customer, offPeakDuration, peakDuration);
             } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
                 int offPeakDuration = call.durationSeconds() <= halfDayInSeconds
                                     ? 0
                                     : halfDayInSeconds;
                 int peakDuration = call.durationSeconds() - offPeakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
+                cost = getCost(customer, offPeakDuration, peakDuration);
             } else if (peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
                 Date peakStart = peakPeriod.getPeakStart(call);
                 int offPeakDuration = getDurationInSeconds(call.startTime(), peakStart);
                 int peakDuration = call.durationSeconds() - offPeakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
+                cost = getCost(customer, offPeakDuration, peakDuration);
             } else if (!peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
                 Date peakEnd = peakPeriod.getPeakEnd(call);
                 int peakDuration = getDurationInSeconds(call.startTime(), peakEnd);
                 int offPeakDuration = call.durationSeconds() - peakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
+                cost = getCost(customer, offPeakDuration, peakDuration);
             }
         return cost;
     }
 
-    private BigDecimal getCost(Tariff tariff, int offPeakDuration, int peakDuration) {
+    private BigDecimal getCost(CustomerInterface customer, int offPeakDuration, int peakDuration) {
         BigDecimal costOffPeak, costPeak;
-        costOffPeak = new BigDecimal(offPeakDuration).multiply(tariff.offPeakRate());
-        costPeak = new BigDecimal(peakDuration).multiply(tariff.peakRate());
+        costOffPeak = new BigDecimal(offPeakDuration).multiply(tariffDatabase.getOffPeakRateFor(customer));
+        costPeak = new BigDecimal(peakDuration).multiply(tariffDatabase.getPeakRateFor(customer));
         return costOffPeak.add(costPeak);
     }
 
@@ -105,8 +114,8 @@ public abstract class AbstractBillingSystem {
     	return this.billReport;
     }
 
-    protected void GenerateBill(Customer customer, BigDecimal totalBill, List<LineItem> items) {
-    	this.billingGenerator.send(customer, items, MoneyFormatter.penceToPounds(totalBill));
+    protected void GenerateBill(CustomerInterface customer, BigDecimal totalBill, List<LineItem> items) {
+    	this.billingGenerator.send(printer, customer, items, MoneyFormatter.penceToPounds(totalBill));
     }
 
     public void clear(){

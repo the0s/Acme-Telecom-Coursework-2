@@ -21,7 +21,7 @@ public class TestCustomerStory extends DoFixture {
 		SystemUnderTest.billingSystem.callCompleted(caller, callee);
 	}
 	
-	public Boolean theNumberOfCallsForCallerIs(String caller, int noOfCalls){
+	public boolean theNumberOfCallsForCallerIs(String caller, int noOfCalls){
 		SystemUnderTest.billingSystem.createCustomerBills();
 		return (noOfCalls == SystemUnderTest.billingSystem.getBillReport().getCallsOf(caller).size());
 	}

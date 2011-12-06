@@ -1,6 +1,6 @@
 package com.acmetelecom.billingsystem;
 
-public abstract class CallEvent {
+public abstract class CallEvent{
     private String caller;
     private String callee;
     private long time;

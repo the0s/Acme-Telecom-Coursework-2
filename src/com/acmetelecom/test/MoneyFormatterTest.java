@@ -1,6 +1,6 @@
 package com.acmetelecom.test;
 
-import com.acmetelecom.utils.MoneyFormatter;
+import com.acmetelecom.billingsystem.utils.MoneyFormatter;
 
 import org.junit.Test;
 

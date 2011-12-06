@@ -1,10 +1,11 @@
 package com.acmetelecom.acceptance;
 
 import com.acmetelecom.billingsystem.Report;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
+import com.acmetelecom.billingsystem.utils.CustomDate;
+import com.acmetelecom.billingsystem.utils.MoneyFormatter;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
-import com.acmetelecom.utils.CustomDate;
-import com.acmetelecom.utils.MoneyFormatter;
 import fit.RowFixture;
 
 import java.util.ArrayList;
@@ -35,8 +36,8 @@ public class GenerateBillForOffPeakTime extends RowFixture{
 		CustomDate startDate = new CustomDate(2011, 11, 11, 21, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 21, 20, 00);
         SystemUnderTest.setTimes(startDate.getDate(), endDate.getDate());
-        List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
-        for (Customer customer : customers) {
+        List<CustomerInterface> customers = SystemUnderTest.customerDatabase.getCustomers();
+        for (CustomerInterface customer : customers) {
         	SystemUnderTest.billingSystem.callInitiated(customer.getPhoneNumber(), "callee");
         	SystemUnderTest.billingSystem.callCompleted(customer.getPhoneNumber(), "callee");
         }
@@ -45,7 +46,7 @@ public class GenerateBillForOffPeakTime extends RowFixture{
         List<Row> rows = new ArrayList<Row>();
         Report report = SystemUnderTest.billingSystem.getBillReport();
         int lineCount = 0;
-        for (Customer customer : customers) {
+        for (CustomerInterface customer : customers) {
         	String totalBill = MoneyFormatter.penceToPounds(report.getTotalBillOf(customer));
         	Row row = new Row(customer.getPhoneNumber(), totalBill);
         	rows.add(lineCount, row);

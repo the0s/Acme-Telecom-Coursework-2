@@ -1,7 +1,7 @@
 package com.acmetelecom.billingsystem;
 
+import com.acmetelecom.billingsystem.utils.CustomDate;
 import com.acmetelecom.configs.CommonConfig;
-import com.acmetelecom.utils.CustomDate;
 
 import java.util.Calendar;
 import java.util.Date;

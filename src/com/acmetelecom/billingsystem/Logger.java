@@ -1,6 +1,6 @@
 package com.acmetelecom.billingsystem;
 
-import com.acmetelecom.customer.Customer;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public interface Logger {
     public void clear();
     public void add(CallEvent callEvent);
-    public List<Call> getCallsDetailsOf(Customer customer);
+    public List<Call> getCallsDetailsOf(CustomerInterface customer);
 
 
 }

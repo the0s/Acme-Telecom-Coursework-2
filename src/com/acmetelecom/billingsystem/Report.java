@@ -1,6 +1,6 @@
 package com.acmetelecom.billingsystem;
 
-import com.acmetelecom.customer.Customer;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,7 +19,7 @@ public interface Report {
 
     void clear();
     void clearCalls();
-    void addCustomerBill(Customer customer, BigDecimal totalBill);
-    public BigDecimal getTotalBillOf(Customer customer);
+    void addCustomerBill(CustomerInterface customer, BigDecimal totalBill);
+    public BigDecimal getTotalBillOf(CustomerInterface customer);
     public List<LineItem> getCallsOf(String customer);
 }

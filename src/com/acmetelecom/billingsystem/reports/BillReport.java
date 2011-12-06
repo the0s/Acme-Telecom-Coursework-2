@@ -2,7 +2,7 @@ package com.acmetelecom.billingsystem.reports;
 
 import com.acmetelecom.billingsystem.LineItem;
 import com.acmetelecom.billingsystem.Report;
-import com.acmetelecom.customer.Customer;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -38,18 +38,21 @@ public class BillReport implements Report {
         this.calls.clear();
     }
 
-    public void addCustomerBill(Customer customer, BigDecimal totalBill) {
+    public void addCustomerBill(CustomerInterface customer, BigDecimal totalBill) {
         this.customerBills.put(customer.getPhoneNumber(),totalBill);
     }
 
-    public BigDecimal getTotalBillOf(Customer customer) {
+    public BigDecimal getTotalBillOf(CustomerInterface customer) {
         return this.customerBills.get(customer.getPhoneNumber());
     }
     
     public List<LineItem> getCallsOf(String customer){
     	List<LineItem> callsOf = new ArrayList<LineItem>();
     	for (LineItem call : calls){
-    		callsOf.add(call);
+    		if (call.caller().equals(customer))
+    		{
+    			callsOf.add(call);
+    		}
     	}
     	return callsOf;
     }

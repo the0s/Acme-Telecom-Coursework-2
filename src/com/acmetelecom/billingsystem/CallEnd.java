@@ -1,8 +1,6 @@
 package com.acmetelecom.billingsystem;
 
-import com.acmetelecom.utils.CustomDate;
-
-import java.util.Date;
+import com.acmetelecom.billingsystem.utils.CustomDate;
 
 public class CallEnd extends CallEvent {
     public CallEnd(String caller, String callee) {
@@ -18,8 +16,4 @@ public class CallEnd extends CallEvent {
         super(caller, callee, customDateTime.getDate().getTime()); 
     }
     
-    //Convenience constructor to allow user to input human readable dates
-    public CallEnd(String caller, String callee, Date date) {
-        super(caller, callee, date.getTime()); 
-    }
 }

@@ -25,6 +25,10 @@ public class LineItem {
     public String callee() {
         return call.callee();
     }
+    
+    public String caller() {
+        return call.caller();
+    }
 
     public String durationMinutes() {
         return "" + call.durationSeconds() / 60 + ":" + String.format("%02d", call.durationSeconds() % 60);
