@@ -1,19 +1,18 @@
 package com.acmetelecom;
 
 
-
 public class FactoryMaker {
-	
-	private static AbstractFactory factory = null;
-	
-	public static AbstractFactory getProductionFactory(){
-		factory = new ProductionFactory();
-		return factory;
-	}
-	
-	public static AbstractFactory getTestFactory(){
-		factory = new TestFactory();
-		return factory;
-	}
+
+    private static AbstractFactory factory = null;
+
+    public static AbstractFactory getProductionFactory() {
+        factory = new ProductionFactory();
+        return factory;
+    }
+
+    public static AbstractFactory getTestFactory() {
+        factory = new TestFactory();
+        return factory;
+    }
 
 }
