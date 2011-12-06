@@ -64,11 +64,18 @@ public abstract class AbstractBillingSystem {
         DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
         int halfDayInSeconds = 12 * 60 * 60;
 
-        if (call.durationSeconds() <= halfDayInSeconds) {
             if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
-                cost = getCost(tariff, call.durationSeconds(), 0);
+                int peakDuration = call.durationSeconds() <= halfDayInSeconds
+                                 ? 0
+                                 : halfDayInSeconds;
+                int offPeakDuration = call.durationSeconds() - peakDuration;
+                cost = getCost(tariff, offPeakDuration, peakDuration);
             } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
-                cost = getCost(tariff, 0, call.durationSeconds());
+                int offPeakDuration = call.durationSeconds() <= halfDayInSeconds
+                                    ? 0
+                                    : halfDayInSeconds;
+                int peakDuration = call.durationSeconds() - offPeakDuration;
+                cost = getCost(tariff, offPeakDuration, peakDuration);
             } else if (peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
                 Date peakStart = peakPeriod.getPeakStart(call);
                 int offPeakDuration = getDurationInSeconds(call.startTime(), peakStart);
@@ -80,27 +87,6 @@ public abstract class AbstractBillingSystem {
                 int offPeakDuration = call.durationSeconds() - peakDuration;
                 cost = getCost(tariff, offPeakDuration, peakDuration);
             }
-        } else if (call.durationSeconds() > halfDayInSeconds) {
-            if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
-                int peakDuration = halfDayInSeconds;
-                int offPeakDuration = call.durationSeconds() - peakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
-            } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
-                int offPeakDuration = halfDayInSeconds;
-                int peakDuration = call.durationSeconds() - offPeakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
-            } else if (peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
-                Date peakStart = peakPeriod.getPeakStart(call);
-                int offPeakDuration =  getDurationInSeconds(call.startTime(), peakStart);
-                int peakDuration = call.durationSeconds() - offPeakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
-            } else if (!peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
-                Date peakEnd = peakPeriod.getPeakEnd(call);
-                int peakDuration =  getDurationInSeconds(call.startTime(), peakEnd);
-                int offPeakDuration = call.durationSeconds() - peakDuration;
-                cost = getCost(tariff, offPeakDuration, peakDuration);
-            }
-        }
         return cost;
     }
 
