@@ -19,14 +19,19 @@ public class DaytimePeakPeriod {
         return hour < DaytimePeakPeriod.peakStart || hour >= DaytimePeakPeriod.peakEnd;
     }
 	
-	public Date getPeakStart(Date callStart){
-        Calendar calendar = getCalendarInstance(callStart);
-        return new CustomDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), DaytimePeakPeriod.peakStart, 00, 00).getDate();
+	public Date getPeakStart(Call call){
+        Calendar calendarStart = getCalendarInstance(call.startTime());
+        Calendar calendarEnd = getCalendarInstance(call.endTime());
+        if (calendarStart.get(Calendar.DAY_OF_MONTH) == calendarEnd.get(Calendar.DAY_OF_MONTH)){
+            return new CustomDate(calendarStart.get(Calendar.YEAR), calendarStart.get(Calendar.MONTH), calendarStart.get(Calendar.DAY_OF_MONTH), DaytimePeakPeriod.peakStart, 00, 00).getDate();
+        }else{
+            return new CustomDate(calendarEnd.get(Calendar.YEAR), calendarEnd.get(Calendar.MONTH), calendarEnd.get(Calendar.DAY_OF_MONTH), DaytimePeakPeriod.peakStart, 00, 00).getDate();
+        }
 	}
 
-	public Date getPeakEnd(Date callStart){
-        Calendar calendar = getCalendarInstance(callStart);
-        return new CustomDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), DaytimePeakPeriod.peakEnd, 00, 00).getDate();
+	public Date getPeakEnd(Call call){
+        Calendar calendarStart = getCalendarInstance(call.startTime());
+        return new CustomDate(calendarStart.get(Calendar.YEAR), calendarStart.get(Calendar.MONTH), calendarStart.get(Calendar.DAY_OF_MONTH), DaytimePeakPeriod.peakEnd, 00, 00).getDate();
 	}
 	
 	private Calendar getCalendarInstance(Date callStart) {
