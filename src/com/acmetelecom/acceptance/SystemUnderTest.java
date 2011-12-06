@@ -1,6 +1,7 @@
 package com.acmetelecom.acceptance;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.acmetelecom.billingsystem.AbstractBillingSystem;
@@ -11,7 +12,6 @@ import com.acmetelecom.billingsystem.loggers.CallLogger;
 import com.acmetelecom.billingsystem.reports.BillReport;
 import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
-import com.acmetelecom.utils.CustomDate;
 
 public class SystemUnderTest {
     public static final BillGeneratorInterface billGenerator = new BillGeneratorFake();
@@ -20,10 +20,10 @@ public class SystemUnderTest {
 	public static final AbstractBillingSystem billingSystem= new BillingSystemFake(billGenerator, logger, report);
 	
 	//A convenience method to set the times for testing
-	public static void setTimes(CustomDate startDate, CustomDate endDate) {
+	public static void setTimes(Date startDate, Date endDate) {
         List<Long> times = new ArrayList<Long>();
-        times.add(startDate.getDate().getTime());
-        times.add(endDate.getDate().getTime());
+        times.add(startDate.getTime());
+        times.add(endDate.getTime());
         ((BillingSystemFake) billingSystem).setTimes(times);
 	}
 }

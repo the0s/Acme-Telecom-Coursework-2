@@ -34,7 +34,7 @@ public class GenerateBillForOffPeakTime extends RowFixture{
         //Set the start and end times
 		CustomDate startDate = new CustomDate(2011, 11, 11, 21, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 21, 20, 00);
-        SystemUnderTest.setTimes(startDate, endDate);
+        SystemUnderTest.setTimes(startDate.getDate(), endDate.getDate());
         List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
         for (Customer customer : customers) {
         	SystemUnderTest.billingSystem.callInitiated(customer.getPhoneNumber(), "callee");

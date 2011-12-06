@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf4a50ac-3a99-45dd-8f66-a05e1b960fe7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/TestCustomerStory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/Runner.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/Runner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/CheckForPeakTime.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/CheckForPeakTime.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForOffPeakTime.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForOffPeakTime.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/GenerateBillForPeakTime.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/SystemUnderTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/acceptance/SystemUnderTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/AbstractBillingSystem.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/AbstractBillingSystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/DaytimePeakPeriod.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/DaytimePeakPeriod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/BillingSystemTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/Report.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/Report.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/reports/BillReport.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/billingsystem/reports/BillReport.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/acmetelecom/test/LineItemTest.java" afterPath="$PROJECT_DIR$/src/com/acmetelecom/test/LineItemTest.java" />
     </list>
     <ignored path="AcmeTelecom.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -170,7 +173,7 @@
       <file leaf-file-name="AbstractBillingSystem.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystem/AbstractBillingSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="13" selection-start="4565" selection-end="4653" vertical-scroll-proportion="0.7928118">
+            <state line="81" column="41" selection-start="3481" selection-end="3481" vertical-scroll-proportion="0.6131078">
               <folding />
             </state>
           </provider>
@@ -188,7 +191,7 @@
       <file leaf-file-name="Runner.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/Runner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="23" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0">
+            <state line="19" column="23" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -1201,18 +1204,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/configs/TestConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="43" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/Runner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="23" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0">
+        <state line="19" column="23" selection-start="605" selection-end="605" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1238,9 +1232,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/configs/TestConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="43" selection-start="689" selection-end="689" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/acmetelecom/billingsystem/AbstractBillingSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="13" selection-start="4565" selection-end="4653" vertical-scroll-proportion="0.7928118">
+        <state line="81" column="41" selection-start="3481" selection-end="3481" vertical-scroll-proportion="0.6131078">
           <folding />
         </state>
       </provider>

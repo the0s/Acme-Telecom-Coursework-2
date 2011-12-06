@@ -1,8 +1,6 @@
 .classpath
 .project
 bin/**/*
-.idea
-.clover
 .metadata
 .settings
 acme.iml

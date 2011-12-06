@@ -1,12 +1,8 @@
 package com.acmetelecom.acceptance;
 
-import com.acmetelecom.AbstractFactory;
-import com.acmetelecom.FactoryMaker;
-import com.acmetelecom.billingsystem.AbstractBillingSystem;
 import com.acmetelecom.billingsystem.Report;
 import com.acmetelecom.customer.CentralCustomerDatabase;
 import com.acmetelecom.customer.Customer;
-import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 import com.acmetelecom.utils.CustomDate;
 import com.acmetelecom.utils.MoneyFormatter;
 import fit.RowFixture;
@@ -40,7 +36,7 @@ public class GenerateBillForPeakTime extends RowFixture{
         //Set the start and end times
 		CustomDate startDate = new CustomDate(2011, 11, 11, 14, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 14, 20, 00);
-        SystemUnderTest.setTimes(startDate, endDate);
+        SystemUnderTest.setTimes(startDate.getDate(), endDate.getDate());
         
         List<Customer> customers = CentralCustomerDatabase.getInstance().getCustomers();
         for (Customer customer : customers) {
