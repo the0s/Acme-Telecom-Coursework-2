@@ -4,5 +4,7 @@ import java.util.List;
 
 
 public interface CustomerDatabaseInterface {
-	public List<CustomerInterface> getCustomers();
+    public List<CustomerInterface> getCustomers();
+
+    public CustomerInterface getCustomerFrom(String number);
 }

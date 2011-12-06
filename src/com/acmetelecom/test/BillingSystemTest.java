@@ -7,7 +7,6 @@ import com.acmetelecom.FactoryMaker;
 import com.acmetelecom.billingsystem.AbstractBillingSystem;
 import com.acmetelecom.billingsystem.Logger;
 import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
-import com.acmetelecom.billingsystem.customers.CustomerFind;
 import com.acmetelecom.billingsystem.customers.CustomerInterface;
 import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
 import com.acmetelecom.billingsystem.utils.CustomDate;
@@ -42,11 +41,11 @@ public class BillingSystemTest {
 
     @Before
     public void init() {
-    	AbstractFactory factory = FactoryMaker.getTestFactory();
+        AbstractFactory factory = FactoryMaker.getTestFactory();
         this.billingSystem = factory.createBillingSystem();
         this.caller = "447711232343";
         this.callee = "447766814143";
-        this.customer = CustomerFind.getCustomerFromNumber(customerDatabase, this.caller);
+        this.customer = customerDatabase.getCustomerFrom(this.caller);
         //this.tariff = CentralTariffDatabase.getInstance().tarriffFor(this.customer);
     }
 
@@ -60,7 +59,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(0, 20*60);
+        BigDecimal calculatedBill = getCalculatedCost(0, 20 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
@@ -74,7 +73,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(20*60, 0);
+        BigDecimal calculatedBill = getCalculatedCost(20 * 60, 0);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
@@ -88,7 +87,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(20*60, 20*60);
+        BigDecimal calculatedBill = getCalculatedCost(20 * 60, 20 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
@@ -136,7 +135,7 @@ public class BillingSystemTest {
     }
 
     @Test
-    public void customerCallsDuringOffPeakAndDateChangesLessThan12Hours(){
+    public void customerCallsDuringOffPeakAndDateChangesLessThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 19, 20, 00);
         CustomDate endDate = new CustomDate(2011, 11, 12, 06, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -145,14 +144,14 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(11* 60 * 60, 0);
+        BigDecimal calculatedBill = getCalculatedCost(11 * 60 * 60, 0);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
 
 
     }
 
     @Test
-    public void customerCallsDuringOffPeakAndDateChangesAndEntersPeakMoreThan12Hours(){
+    public void customerCallsDuringOffPeakAndDateChangesAndEntersPeakMoreThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 19, 20, 00);
         CustomDate endDate = new CustomDate(2011, 11, 12, 9, 20, 00);
         List<Long> times = new ArrayList<Long>();
@@ -161,12 +160,12 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(700 * 60, 140*60);
+        BigDecimal calculatedBill = getCalculatedCost(700 * 60, 140 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
     @Test
-    public void customerCallsDuringPeakAndDateChangesAndEntersOffPeakMoreThan12Hours(){
+    public void customerCallsDuringPeakAndDateChangesAndEntersOffPeakMoreThan12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 9, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 12, 5, 00, 00);
         List<Long> times = new ArrayList<Long>();
@@ -175,12 +174,12 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(10 * 60 * 60, 10*60*60);
+        BigDecimal calculatedBill = getCalculatedCost(10 * 60 * 60, 10 * 60 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
     @Test
-    public void customerCallsOnBoundariesPeakEqualTo12Hours(){
+    public void customerCallsOnBoundariesPeakEqualTo12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 7, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 11, 19, 00, 00);
         List<Long> times = new ArrayList<Long>();
@@ -189,12 +188,12 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(0, 12*60*60);
+        BigDecimal calculatedBill = getCalculatedCost(0, 12 * 60 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
-     @Test
-    public void customerCallsOnBoundariesOffPeakEqualTo12Hours(){
+    @Test
+    public void customerCallsOnBoundariesOffPeakEqualTo12Hours() {
         CustomDate startDate = new CustomDate(2011, 11, 11, 19, 00, 00);
         CustomDate endDate = new CustomDate(2011, 11, 12, 07, 00, 00);
         List<Long> times = new ArrayList<Long>();
@@ -203,12 +202,12 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(12*60*60,0);
+        BigDecimal calculatedBill = getCalculatedCost(12 * 60 * 60, 0);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
     private BigDecimal getTotalBillOfCaller() {
-        BigDecimal total =  billingSystem.getBillReport().getTotalBillOf(customer);
+        BigDecimal total = billingSystem.getBillReport().getTotalBillOf(customer);
         //billingSystem.clear();
         return total;
     }
