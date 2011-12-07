@@ -71,31 +71,32 @@ public abstract class AbstractBillingSystem {
 
     private BigDecimal calculateCallCost(CustomerInterface customer, Call call) {
         BigDecimal cost = new BigDecimal(ZERO);
-
         DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
         int halfDayInSeconds = HALD_DAY_IN_SECONDS;
+        int peakDuration = ZERO;
+        int offPeakDuration = ZERO;
 
         if (peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
-            int peakDuration = call.durationSeconds() <= halfDayInSeconds
+            peakDuration = call.durationSeconds() <= halfDayInSeconds
                     ? ZERO
                     : halfDayInSeconds;
-            int offPeakDuration = call.durationSeconds() - peakDuration;
+            offPeakDuration = call.durationSeconds() - peakDuration;
             cost = getCost(customer, offPeakDuration, peakDuration);
         } else if (!peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
-            int offPeakDuration = call.durationSeconds() <= halfDayInSeconds
+            offPeakDuration = call.durationSeconds() <= halfDayInSeconds
                     ? ZERO
                     : halfDayInSeconds;
-            int peakDuration = call.durationSeconds() - offPeakDuration;
+            peakDuration = call.durationSeconds() - offPeakDuration;
             cost = getCost(customer, offPeakDuration, peakDuration);
         } else if (peakPeriod.offPeak(call.startTime()) && !peakPeriod.offPeak(call.endTime())) {
             Date peakStart = peakPeriod.getPeakStart(call);
-            int offPeakDuration = getDurationInSeconds(call.startTime(), peakStart);
-            int peakDuration = call.durationSeconds() - offPeakDuration;
+            offPeakDuration = getDurationInSeconds(call.startTime(), peakStart);
+            peakDuration = call.durationSeconds() - offPeakDuration;
             cost = getCost(customer, offPeakDuration, peakDuration);
         } else if (!peakPeriod.offPeak(call.startTime()) && peakPeriod.offPeak(call.endTime())) {
             Date peakEnd = peakPeriod.getPeakEnd(call);
-            int peakDuration = getDurationInSeconds(call.startTime(), peakEnd);
-            int offPeakDuration = call.durationSeconds() - peakDuration;
+            peakDuration = getDurationInSeconds(call.startTime(), peakEnd);
+            offPeakDuration = call.durationSeconds() - peakDuration;
             cost = getCost(customer, offPeakDuration, peakDuration);
         }
         return cost;
