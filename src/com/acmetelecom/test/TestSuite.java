@@ -12,7 +12,13 @@ import org.junit.runners.Suite;
  * To change this template use File | Settings | File Templates.
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({BillingSystemTest.class, CallTest.class, DaytimePeakPeriodTest.class, LineItemTest.class, MoneyFormatterTest.class})
+@Suite.SuiteClasses({BillingSystemTest.class,
+        CallTest.class,
+        DaytimePeakPeriodTest.class,
+        LineItemTest.class,
+        MoneyFormatterTest.class,
+        BillGeneratorMockTest.class,
+        BillingSystemMockTest.class})
 public class TestSuite {
 }
 

@@ -34,7 +34,7 @@ public class BillingSystemMockTest {
             oneOf(logger).clear();
             oneOf(report).clear();
         }});
-        BillingSystemFake bsf = new BillingSystemFake(billGeneratorInterface, logger, report, customerDatabase, tariffDatabase, printer);
+        BillingSystem bsf = new BillingSystem(billGeneratorInterface, logger, report, customerDatabase, tariffDatabase, printer);
         bsf.clear();
     }
 
@@ -45,7 +45,9 @@ public class BillingSystemMockTest {
         customerInterfaceList.add(customerInterface);
         callList.add(call);
         final Long d = new Long(0);
-        final BigDecimal c = new BigDecimal(d);
+        final BigDecimal c = new BigDecimal(0);
+        //final List<LineItem> lineItemList = new ArrayList<LineItem>();
+        //LineItem lineItem = new LineItem(call, new BigDecimal(2));
         context.checking(new Expectations() {{
             allowing(customerDatabase).getCustomers();
             will(returnValue(customerInterfaceList));
@@ -57,11 +59,14 @@ public class BillingSystemMockTest {
             will(returnValue(c));
             allowing(tariffDatabase).getPeakRateFor(customerInterface);
             will(returnValue(c));
-            allowing(report).add(new LineItem(call, c));
+            ignoring(report);
+            //oneOf(billGeneratorInterface).send(printer, customerInterface, lineItemList, "0.00");
+            ignoring(billGeneratorInterface);
             oneOf(logger).clear();
         }});
         BillingSystemFake bsf = new BillingSystemFake(billGeneratorInterface, logger, report, customerDatabase, tariffDatabase, printer);
         bsf.createCustomerBills();
+
     }
 
 
