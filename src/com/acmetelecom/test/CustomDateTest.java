@@ -17,7 +17,6 @@ public class CustomDateTest {
     public void testCustomDate() {
         CustomDate customDate = new CustomDate(11, 12, 07, 23, 00, 00);
         assertEquals(customDate.getDate().toString(), "Thu Jan 07 23:00:00 GMT 12");
-
     }
 
 }
