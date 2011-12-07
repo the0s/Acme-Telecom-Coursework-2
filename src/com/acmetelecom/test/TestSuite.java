@@ -18,7 +18,8 @@ import org.junit.runners.Suite;
         LineItemTest.class,
         MoneyFormatterTest.class,
         BillGeneratorMockTest.class,
-        BillingSystemMockTest.class})
+        BillingSystemMockTest.class,
+        CustomDateTest.class})
 public class TestSuite {
 }
 
