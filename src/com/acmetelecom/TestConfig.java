@@ -1,12 +1,16 @@
 package com.acmetelecom;
 
-import com.acmetelecom.billingsystem.*;
+import com.acmetelecom.billinggenerators.BillGenerator;
+import com.acmetelecom.billingsystem.AbstractBillingSystem;
+import com.acmetelecom.billingsystem.BillGeneratorInterface;
+import com.acmetelecom.billingsystem.Logger;
+import com.acmetelecom.billingsystem.Printer;
+import com.acmetelecom.billingsystem.Report;
 import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
 import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
 import com.acmetelecom.loggers.CallLogger;
 import com.acmetelecom.printers.ConsolePrinter;
 import com.acmetelecom.reports.BillReport;
-import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 
 /**
@@ -18,7 +22,7 @@ import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
  */
 
 public class TestConfig {//TODO ADD PRINTER
-    private final static BillGeneratorInterface billGenerator = new BillGeneratorFake();
+    private final static BillGeneratorInterface billGenerator = new BillGenerator();
     private final static Logger logger = new CallLogger();
     private final static Report report = new BillReport();
     private final static CustomerDatabaseInterface customerDatabase = new AcmeCustomerDatabase();

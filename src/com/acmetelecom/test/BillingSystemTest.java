@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.acmetelecom.configs.CommonConfig.HALD_DAY_IN_SECONDS;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -116,7 +117,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(12 * 60 * 60, 40 * 60);
+        BigDecimal calculatedBill = getCalculatedCost(HALD_DAY_IN_SECONDS, 40 * 60);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
@@ -130,7 +131,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(40 * 60, 12 * 60 * 60);
+        BigDecimal calculatedBill = getCalculatedCost(40 * 60, HALD_DAY_IN_SECONDS);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
@@ -188,7 +189,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(0, 12 * 60 * 60);
+        BigDecimal calculatedBill = getCalculatedCost(0, HALD_DAY_IN_SECONDS);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 
@@ -202,7 +203,7 @@ public class BillingSystemTest {
         ((BillingSystemFake) billingSystem).setTimes(times);
         makeTestCall(billingSystem);
         BigDecimal totalBill = getTotalBillOfCaller();
-        BigDecimal calculatedBill = getCalculatedCost(12 * 60 * 60, 0);
+        BigDecimal calculatedBill = getCalculatedCost(HALD_DAY_IN_SECONDS, 0);
         assertThat(MoneyFormatter.penceToPounds(totalBill), is(MoneyFormatter.penceToPounds(calculatedBill)));
     }
 

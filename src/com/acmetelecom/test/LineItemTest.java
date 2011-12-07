@@ -63,4 +63,9 @@ public class LineItemTest {
         assertEquals(lineItem.cost().toString(), "10");
 
     }
+
+    @Test
+    public void testCaller() throws Exception {
+        assertEquals(lineItem.caller(), "Caller");
+    }
 }

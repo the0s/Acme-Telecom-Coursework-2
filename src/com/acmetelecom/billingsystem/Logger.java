@@ -13,7 +13,9 @@ import java.util.List;
  */
 public interface Logger {
     public void clear();
-    public void add(CallEvent callEvent);
+
+    public void add(CallEventInterface callEvent);
+
     public List<Call> getCallsDetailsOf(CustomerInterface customer);
 
 

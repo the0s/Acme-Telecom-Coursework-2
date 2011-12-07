@@ -4,10 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Call {
-    private CallEvent start;
-    private CallEvent end;
+    private CallEventInterface start;
+    private CallEventInterface end;
 
-    public Call(CallEvent start, CallEvent end) {
+    public Call(CallEventInterface start, CallEventInterface end) {
         this.start = start;
         this.end = end;
     }
@@ -15,7 +15,7 @@ public class Call {
     public String caller() {
         return start.getCaller();
     }
-    
+
     public String callee() {
         return start.getCallee();
     }
