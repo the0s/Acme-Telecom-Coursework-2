@@ -1,21 +1,17 @@
 <project name="Acme" default="full-build">
 	<property name="product" value="acme" />
 
-	<path id="compile.classpath.src">
-	</path>
+	<junit printsummary="yes" haltonfailure="yes" showoutput="yes" > 
+		<classpath> 
+		        <pathelement path="${build}"/> 
+		</classpath>                   
 
-	<target name="full-build" description="Builds everything from scratch" depends="clean, test" />
-    
-	<target name="clean" description="Removes all build artefacts">
-		<delete dir="build" />
-		<delete dir="reports" />
-	</target>
-
-	<target name="test" depends="jars">
-		<java classname="fitlibrary.runner.FolderRunner" classpathref="run.classpath.acceptance">
-			<arg value="fit" />
-			<arg value="reports" />
-		</java>
-	</target>
+		<batchtest fork="yes" todir="${reports}/raw/"> 
+		        <formatter type="xml"/> 
+		        <fileset dir="${src}"> 
+		                <include name="**/*Test*.java"/> 
+		        </fileset> 
+		</batchtest> 
+	</junit> 
 	
 </project>
