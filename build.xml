@@ -1,4 +1,3 @@
-<project name="Acme" default="full-build">
 <path id="src.path">    
     <pathelement path="src/"/>
 </path>
@@ -44,4 +43,3 @@
         </batchtest>
     </junit>
 </target>
-</project>
