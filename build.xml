@@ -17,9 +17,5 @@
 			<arg value="reports" />
 		</java>
 	</target>
-
-    <target name="jars">
-        <compile-module name="src" />
-    </target>
 	
 </project>

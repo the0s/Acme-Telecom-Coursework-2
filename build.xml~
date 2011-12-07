@@ -17,23 +17,5 @@
 			<arg value="reports" />
 		</java>
 	</target>
-
-    <target name="jars">
-        <compile-module name="src" />
-    </target>
 	
-	<macrodef name="compile-module">
-		<attribute name="name" />
-
-		<sequential>
-			<mkdir dir="build/classes/@{name}" />
-
-			<javac srcdir="src/@{name}" destdir="build/classes/@{name}" debug="${debug}" classpathref="compile.classpath.@{name}" />
-
-			<jar jarfile="build/@{name}.jar">
-				<fileset dir="build/classes/@{name}" />
-				<fileset dir="src/@{name}" />
-			</jar>
-		</sequential>
-	</macrodef>
 </project>
