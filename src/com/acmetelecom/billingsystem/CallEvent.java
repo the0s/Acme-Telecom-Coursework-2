@@ -1,6 +1,6 @@
 package com.acmetelecom.billingsystem;
 
-public abstract class CallEvent{
+public abstract class CallEvent implements CallEventInterface {
     private String caller;
     private String callee;
     private long time;
@@ -11,14 +11,17 @@ public abstract class CallEvent{
         this.time = timeStamp;
     }
 
+    @Override
     public String getCaller() {
         return caller;
     }
 
+    @Override
     public String getCallee() {
         return callee;
     }
 
+    @Override
     public long time() {
         return time;
     }

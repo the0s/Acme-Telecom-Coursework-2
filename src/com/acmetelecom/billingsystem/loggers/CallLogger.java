@@ -13,24 +13,24 @@ import java.util.List;
  * Time: 15:16
  * To change this template use File | Settings | File Templates.
  */
-public class CallLogger implements Logger{
-    private List<CallEvent> callLog = new ArrayList<CallEvent>();
+public class CallLogger implements Logger {
+    private List<CallEventInterface> callLog = new ArrayList<CallEventInterface>();
 
-    private List<CallEvent> getEvents() {
+    private List<CallEventInterface> getEvents() {
         return this.callLog;
-            }
+    }
 
     public void clear() {
         this.callLog.clear();
     }
 
-    public void add(CallEvent callEvent) {
+    public void add(CallEventInterface callEvent) {
         this.callLog.add(callEvent);
     }
 
-    private List<CallEvent> getCustomerEvents(CustomerInterface customer) {
-        List<CallEvent> customerEvents = new ArrayList<CallEvent>();
-        for (CallEvent callEvent : this.getEvents()) {
+    private List<CallEventInterface> getCustomerEvents(CustomerInterface customer) {
+        List<CallEventInterface> customerEvents = new ArrayList<CallEventInterface>();
+        for (CallEventInterface callEvent : this.getEvents()) {
             if (callEvent.getCaller().equals(customer.getPhoneNumber())) {
                 customerEvents.add(callEvent);
             }
@@ -39,10 +39,10 @@ public class CallLogger implements Logger{
     }
 
     public List<Call> getCallsDetailsOf(CustomerInterface customer) {
-        List<CallEvent> customerEvents = this.getCustomerEvents(customer);
+        List<CallEventInterface> customerEvents = this.getCustomerEvents(customer);
         List<Call> calls = new ArrayList<Call>();
-        CallEvent start = null;
-        for (CallEvent event : customerEvents) {
+        CallEventInterface start = null;
+        for (CallEventInterface event : customerEvents) {
             if (event instanceof CallStart) {
                 start = event;
             }
@@ -53,7 +53,6 @@ public class CallLogger implements Logger{
         }
         return calls;
     }
-
 
 
 }
