@@ -19,7 +19,10 @@ import org.junit.runners.Suite;
         MoneyFormatterTest.class,
         BillGeneratorMockTest.class,
         BillingSystemMockTest.class,
-        CustomDateTest.class})
+        CustomDateTest.class,
+        SystemData.class,
+        BillingSystemTest.class
+})
 public class TestSuite {
 }
 
