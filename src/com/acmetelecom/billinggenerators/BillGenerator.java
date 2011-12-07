@@ -1,11 +1,11 @@
-package com.acmetelecom.billingsystem.billinggenerators;
+package com.acmetelecom.billinggenerators;
 
 import com.acmetelecom.billingsystem.Printer;
 import com.acmetelecom.billingsystem.BillGeneratorInterface;
 import com.acmetelecom.billingsystem.LineItem;
 import com.acmetelecom.billingsystem.customers.CustomerInterface;
-import com.acmetelecom.billingsystem.printers.HtmlPrinter;
 import com.acmetelecom.billingsystem.utils.MoneyFormatter;
+import com.acmetelecom.printers.HtmlPrinter;
 
 import java.util.List;
 

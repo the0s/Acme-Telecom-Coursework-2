@@ -3,9 +3,9 @@ package com.acmetelecom;
 import com.acmetelecom.billingsystem.*;
 import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
 import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
-import com.acmetelecom.billingsystem.loggers.CallLogger;
-import com.acmetelecom.billingsystem.printers.ConsolePrinter;
-import com.acmetelecom.billingsystem.reports.BillReport;
+import com.acmetelecom.loggers.CallLogger;
+import com.acmetelecom.printers.ConsolePrinter;
+import com.acmetelecom.reports.BillReport;
 import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 

@@ -13,9 +13,9 @@ import com.acmetelecom.billingsystem.Printer;
 import com.acmetelecom.billingsystem.Report;
 import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
 import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
-import com.acmetelecom.billingsystem.loggers.CallLogger;
-import com.acmetelecom.billingsystem.printers.HtmlPrinter;
-import com.acmetelecom.billingsystem.reports.BillReport;
+import com.acmetelecom.loggers.CallLogger;
+import com.acmetelecom.printers.HtmlPrinter;
+import com.acmetelecom.reports.BillReport;
 import com.acmetelecom.test.com.acmetelecom.fake.BillGeneratorFake;
 import com.acmetelecom.test.com.acmetelecom.fake.BillingSystemFake;
 

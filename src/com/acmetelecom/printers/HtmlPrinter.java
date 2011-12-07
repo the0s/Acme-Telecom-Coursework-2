@@ -1,4 +1,4 @@
-package com.acmetelecom.billingsystem.printers;
+package com.acmetelecom.printers;
 
 import com.acmetelecom.billingsystem.Printer;
 

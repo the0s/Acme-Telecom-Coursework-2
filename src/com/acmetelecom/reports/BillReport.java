@@ -1,4 +1,4 @@
-package com.acmetelecom.billingsystem.reports;
+package com.acmetelecom.reports;
 
 import com.acmetelecom.billingsystem.LineItem;
 import com.acmetelecom.billingsystem.Report;

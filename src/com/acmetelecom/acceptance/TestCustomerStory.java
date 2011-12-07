@@ -3,6 +3,10 @@ package com.acmetelecom.acceptance;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import com.acmetelecom.AcmeCustomer;
+import com.acmetelecom.billingsystem.customers.CustomerInterface;
+import com.acmetelecom.customer.Customer;
+
 import fitlibrary.DoFixture;
 
 public class TestCustomerStory extends DoFixture {
@@ -24,6 +28,11 @@ public class TestCustomerStory extends DoFixture {
 	public boolean theNumberOfCallsForCallerIs(String caller, int noOfCalls){
 		SystemUnderTest.billingSystem.createCustomerBills();
 		return (noOfCalls == SystemUnderTest.billingSystem.getBillReport().getCallsOf(caller).size());
+	}
+	
+	public boolean theCostOfTheCallsIsIs(String caller, String totalCost){
+		CustomerInterface customer = new AcmeCustomer("caller", caller, "standard");
+		return (totalCost == SystemUnderTest.billingSystem.getBillReport().getTotalBillOf(customer).toString());
 	}
 	 
 	public void getComDotAcmetelecomDotAcceptanceDotTestCustomerStory() { } 

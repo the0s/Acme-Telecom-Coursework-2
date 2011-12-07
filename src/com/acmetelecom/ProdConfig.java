@@ -1,12 +1,13 @@
 package com.acmetelecom;
 
+import com.acmetelecom.billinggenerators.BillGenerator;
 import com.acmetelecom.billingsystem.*;
-import com.acmetelecom.billingsystem.billinggenerators.BillGenerator;
 import com.acmetelecom.billingsystem.customers.CustomerDatabaseInterface;
 import com.acmetelecom.billingsystem.customers.TariffDatabaseInterface;
-import com.acmetelecom.billingsystem.loggers.CallLogger;
-import com.acmetelecom.billingsystem.printers.HtmlPrinter;
-import com.acmetelecom.billingsystem.reports.BillReport;
+import com.acmetelecom.billingsystems.BillingSystem;
+import com.acmetelecom.loggers.CallLogger;
+import com.acmetelecom.printers.HtmlPrinter;
+import com.acmetelecom.reports.BillReport;
 
 /**
  * Created by IntelliJ IDEA.
@@ -15,7 +16,7 @@ import com.acmetelecom.billingsystem.reports.BillReport;
  * Time: 21:40
  * To change this template use File | Settings | File Templates.
  */
-public class ProdConfig { //TODO ADD PRINTER
+public class ProdConfig { 
     private final static BillGeneratorInterface billGenerator = new BillGenerator();
     private final static Logger logger = new CallLogger();
     private final static Report report = new BillReport();
