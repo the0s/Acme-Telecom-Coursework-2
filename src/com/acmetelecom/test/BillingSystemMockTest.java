@@ -47,8 +47,6 @@ public class BillingSystemMockTest {
         callList.add(call);
         final Long d = new Long(0);
         final BigDecimal c = new BigDecimal(0);
-        //final List<LineItem> lineItemList = new ArrayList<LineItem>();
-        //LineItem lineItem = new LineItem(call, new BigDecimal(2));
         context.checking(new Expectations() {{
             allowing(customerDatabase).getCustomers();
             will(returnValue(customerInterfaceList));
@@ -61,7 +59,6 @@ public class BillingSystemMockTest {
             allowing(tariffDatabase).getPeakRateFor(customerInterface);
             will(returnValue(c));
             ignoring(report);
-            //oneOf(billGeneratorInterface).send(printer, customerInterface, lineItemList, "0.00");
             ignoring(billGeneratorInterface);
             oneOf(logger).clear();
         }});

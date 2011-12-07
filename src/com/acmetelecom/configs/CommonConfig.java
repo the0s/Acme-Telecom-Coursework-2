@@ -11,6 +11,6 @@ public class CommonConfig {
     public final static int peakStart = 7;
     public final static int peakEnd = 19;
     public final static int ZERO = 0;
-    public final static int HALD_DAY_IN_SECONDS = 12 * 60 * 60;
+    public final static int HALF_DAY_IN_SECONDS = 12 * 60 * 60;
     public final static int THOUSAND = 1000;
 }

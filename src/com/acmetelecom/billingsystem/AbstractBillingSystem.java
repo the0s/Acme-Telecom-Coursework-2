@@ -46,7 +46,7 @@ public abstract class AbstractBillingSystem {
     public abstract void callCompleted(String caller, String callee);
 
     public void createCustomerBills() {
-        List<CustomerInterface> customers = customerDatabase.getCustomers(); //CentralCustomerDatabase.getInstance().getCustomers();
+        List<CustomerInterface> customers = customerDatabase.getCustomers();
         for (CustomerInterface customer : customers) {
             createBillFor(customer);
         }
@@ -72,7 +72,7 @@ public abstract class AbstractBillingSystem {
     private BigDecimal calculateCallCost(CustomerInterface customer, Call call) {
         BigDecimal cost = new BigDecimal(ZERO);
         DaytimePeakPeriod peakPeriod = new DaytimePeakPeriod();
-        int halfDayInSeconds = HALD_DAY_IN_SECONDS;
+        int halfDayInSeconds = HALF_DAY_IN_SECONDS;
         int peakDuration = ZERO;
         int offPeakDuration = ZERO;
 

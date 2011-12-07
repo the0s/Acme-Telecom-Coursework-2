@@ -9,14 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AcmeCustomerDatabase implements CustomerDatabaseInterface {
-//	private List<CustomerInterface> customers = new ArrayList<CustomerInterface>();
-//	
-//	public AcmeCustomerDatabase(){
-//		List<Customer> customers= CentralCustomerDatabase.getInstance().getCustomers();    
-//		for (Customer customer: customers){
-//			this.customers.add(new AcmeCustomer(customer.getFullName(), customer.getPhoneNumber(), customer.getPricePlan()));
-//		}
-//	}
 
     @Override
     public List<CustomerInterface> getCustomers() {

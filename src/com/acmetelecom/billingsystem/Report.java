@@ -18,8 +18,12 @@ public interface Report {
     List<LineItem> getCalls();
 
     void clear();
+
     void clearCalls();
+
     void addCustomerBill(CustomerInterface customer, BigDecimal totalBill);
+
     public BigDecimal getTotalBillOf(CustomerInterface customer);
+
     public List<LineItem> getCallsOf(String customer);
 }

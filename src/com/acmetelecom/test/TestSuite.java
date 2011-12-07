@@ -20,7 +20,6 @@ import org.junit.runners.Suite;
         BillGeneratorMockTest.class,
         BillingSystemMockTest.class,
         CustomDateTest.class,
-        SystemData.class,
         BillingSystemTest.class
 })
 public class TestSuite {

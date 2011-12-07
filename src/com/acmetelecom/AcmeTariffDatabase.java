@@ -9,12 +9,6 @@ import com.acmetelecom.customer.TariffLibrary;
 import java.math.BigDecimal;
 
 public class AcmeTariffDatabase implements TariffDatabaseInterface {
-//	public static TariffLibrary tariffLibrary = null;
-//
-//	public AcmeTariffDatabase(){
-//		tariffLibrary = CentralTariffDatabase.getInstance();
-//	}
-
 
     public BigDecimal getOffPeakRateFor(CustomerInterface customer) {
         TariffLibrary tariffLibrary = CentralTariffDatabase.getInstance();
