@@ -1,17 +1,47 @@
 <project name="Acme" default="full-build">
-	<property name="product" value="acme" />
+<path id="src.path">    
+    <pathelement path="src/"/>
+</path>
 
-	<junit printsummary="yes" haltonfailure="yes" showoutput="yes" > 
-		<classpath> 
-		        <pathelement path="${build}"/> 
-		</classpath>                   
+<path id="compile.path">
+    <path refid="src.path"/>
+    <fileset dir="lib/">
+        <include name="**/*.jar"/>
+    </fileset>
+</path>
 
-		<batchtest fork="yes" todir="${reports}/raw/"> 
-		        <formatter type="xml"/> 
-		        <fileset dir="${src}"> 
-		                <include name="**/*Test*.java"/> 
-		        </fileset> 
-		</batchtest> 
-	</junit> 
-	
+<path id="unit.test.path">
+    <path refid="compile.path"/>
+    <pathelement path="src/com/acmetelecom/test/"/>
+</path>
+
+<target name="compile">
+    <javac destdir="bin">
+        <src path="src"/>
+        <classpath refid="compile.path"/>
+    </javac>
+</target>
+
+<target name="compileUnitTests" depends="compile">
+    <javac srcdir="src/com/acmetelecom/test/" destdir="bin">
+        <classpath refid="unit.test.path"/>
+    </javac>
+</target>
+
+<target name="runUnitTests" depends="compileUnitTests">
+    <junit printsummary="yes" haltonfailure="no">
+    <jvmarg value="-Dfile.encoding=UTF-8"/>
+        <classpath refid="unit.test.path"/>
+
+        <formatter type="xml"/>
+
+        <batchtest fork="yes" todir="${this.report}">
+            <fileset dir="test">
+                <include name="${test.pattern}"/>
+                <exclude name="**/AllTests.class"/>
+                <exclude name="**/*$*.class"/>
+            </fileset>
+        </batchtest>
+    </junit>
+</target>
 </project>
