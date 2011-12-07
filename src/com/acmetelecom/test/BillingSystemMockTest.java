@@ -10,6 +10,10 @@ import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class BillingSystemMockTest {
     @Rule
@@ -34,26 +38,31 @@ public class BillingSystemMockTest {
         bsf.clear();
     }
 
-//    @Test
-//    public void testCreateCustomerBills() {
-//        final List<CustomerInterface> customerInterfaceList = new ArrayList<CustomerInterface>();
-//        final List<Call> callList = new ArrayList<Call>();
-//        customerInterfaceList.add(customerInterface);
-//        callList.add(call);
-//        final Long d = new Long(0);
-//        final BigDecimal c = new BigDecimal(d);
-//        context.checking(new Expectations() {{
-//            allowing(customerDatabase).getCustomers();will(returnValue(customerInterfaceList));
-//            allowing(logger).getCallsDetailsOf(customerInterface);will(returnValue(callList));
-//            allowing(callEvent).time();will(returnValue(d));
-//            allowing(tariffDatabase).getOffPeakRateFor(customerInterface);will(returnValue(c));
-//            allowing(tariffDatabase).getPeakRateFor(customerInterface);will(returnValue(c));
-//            allowing(report).add(new LineItem(call,c));
-//            oneOf(logger).clear();
-//        }});
-//        BillingSystemFake bsf = new BillingSystemFake(billGeneratorInterface, logger, report, customerDatabase, tariffDatabase, printer);
-//        bsf.createCustomerBills();
-//    }
+    @Test
+    public void testCreateBillFor() {
+        final List<CustomerInterface> customerInterfaceList = new ArrayList<CustomerInterface>();
+        final List<Call> callList = new ArrayList<Call>();
+        customerInterfaceList.add(customerInterface);
+        callList.add(call);
+        final Long d = new Long(0);
+        final BigDecimal c = new BigDecimal(d);
+        context.checking(new Expectations() {{
+            allowing(customerDatabase).getCustomers();
+            will(returnValue(customerInterfaceList));
+            allowing(logger).getCallsDetailsOf(customerInterface);
+            will(returnValue(callList));
+            allowing(callEvent).time();
+            will(returnValue(d));
+            allowing(tariffDatabase).getOffPeakRateFor(customerInterface);
+            will(returnValue(c));
+            allowing(tariffDatabase).getPeakRateFor(customerInterface);
+            will(returnValue(c));
+            allowing(report).add(new LineItem(call, c));
+            oneOf(logger).clear();
+        }});
+        BillingSystemFake bsf = new BillingSystemFake(billGeneratorInterface, logger, report, customerDatabase, tariffDatabase, printer);
+        bsf.createCustomerBills();
+    }
 
 
 }
